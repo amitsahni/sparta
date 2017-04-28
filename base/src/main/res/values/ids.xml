@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--base_material_edittext-->
+    <item name="base_material_edittext_baseTextInputLayout" type="id" />
+    <item name="base_material_edittext_baseEditText" type="id" />
+
+    <!--base_material_autocomplete_textview-->
+    <item name="base_material_autocomplete_textview_baseTextInputLayout" type="id" />
+    <item name="base_material_autocomplete_textview_baseAutoCompleteEditText" type="id" />
+
+    <!--base_view_tab_pager-->
+    <item name="base_view_tab_pager_baseTabStrip" type="id" />
+    <item name="base_view_tab_pager_baseViewpager" type="id" />
+
+    <!--base_view_tab_pager-->
+    <item name="toolbar_base_toolbar" type="id" />
+    <item name="toolbar_base_left_baseImageView" type="id" />
+    <item name="toolbar_base_middle_baseTextView" type="id" />
+    <item name="toolbar_base_right_baseTextView" type="id" />
+    <item name="toolbar_base_right_baseImageView" type="id" />
+
+    <!--dialog_progress_base-->
+    <item name="dialog_progress_baseProgressBar" type="id" />
+    <item name="dialog_progress_baseTextView" type="id" />
+
+    <!--loadmore_footer_progress_base-->
+    <item name="loadmore_footer_progressViewApplication" type="id" />
+
+    <!--view_empty_base-->
+    <item name="view_empty_baseTextView" type="id" />
+
+    <!--autocomplete_searchview_base-->
+    <item name="autocomplete_searchview_parent" type="id" />
+    <item name="autocomplete_searchview_baseAutocompleteEditText" type="id" />
+    <item name="autocomplete_searchview_baseImageView" type="id" />
+    <item name="autocomplete_searchview_progressViewApplication" type="id" />
+
+    <!--imageview_loading_base-->
+    <item name="imageview_loading_baseImageView" type="id" />
+    <item name="imageview_loading_baseImageView_gradient" type="id" />
+    <item name="imageview_loading_progressViewApp" type="id" />
+
+</resources>

@@ -1,0 +1,58 @@
+<resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base" />
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--set default application background-->
+        <item name="android:windowBackground">@color/app_theme_base</item>
+        <item name="android:windowDisablePreview">true</item>
+        <!-- Customize your theme here. for Lollipop-->
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/colorPrimary_base</item>
+
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_base</item>
+        <!-- colorAccent is used as the default value for colorControlActivated
+             which is used to tint widgets -->
+        <item name="colorAccent">@color/colorAccent_base</item>
+        <!-- You can also set colorControlNormal, colorControlActivated
+             colorControlHighlight & colorSwitchThumbNormal. -->
+        <!--windowContentTransitions is used to activate activity/fragment transition on lollipop and later version-->
+        <item name="android:windowContentTransitions" tools:targetApi="21">true</item>
+
+        <!--
+            set the default values for the widget/components used in application
+        -->
+        <!--TextView default style-->
+        <item name="android:textViewStyle">@style/Widget.TextView</item>
+        <!--EditText default style-->
+        <item name="editTextStyle">@style/Widget.EditText</item>
+        <item name="android:editTextStyle">@style/Widget.EditText</item>
+        <!--Button default style-->
+        <item name="buttonStyle">@style/Widget.Button</item>
+        <item name="android:buttonStyle">@style/Widget.Button</item>
+        <!--ListView default style-->
+        <item name="android:listViewStyle">@style/Widget.ListView</item>
+        <!--GridView default style-->
+        <item name="android:gridViewStyle">@style/Widget.GridView</item>
+        <!--ExpendableListView default style-->
+        <item name="android:expandableListViewStyle">@style/Widget.ExpandableListView</item>
+        <!--DropDownListView default style-->
+        <item name="dropDownListViewStyle">@style/Widget.DropDownListView</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.DropDownListView</item>
+        <!-- ProgressBar style -->
+        <item name="progressBarStyle">@style/Widget.ProgressDialog.ProgressBarCircle</item>
+        <item name="android:progressBarStyle">@style/Widget.ProgressDialog.ProgressBarCircle</item>
+        <!--
+            set the default text font for all the text in the application
+        -->
+       <!-- <item name="typefaces">proximanova</item>-->
+        <!--
+           set the default text color for all the text in the application
+       -->
+        <!-- <item name="android:textColor">@color/textColor_default_base</item>-->
+
+    </style>
+
+</resources>

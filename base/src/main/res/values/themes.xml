@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <!--http://developer.android.com/guide/topics/ui/themes.html-->
+    <!--layout height and width themes-->
+    <!--layout height match parent-->
+    <style name="FillHeight">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!--layout width match parent-->
+    <style name="FillWidth">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <!--layout height & width match parent-->
+    <style name="FillHeight.FillWidth">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <!--layout height match parent & width wrap content-->
+    <style name="FillHeight.WrapWidth">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    <!--layout width match parent & height wrap content-->
+    <style name="FillWidth.WrapHeight">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--layout width wrap content-->
+    <style name="WrapWidth">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    <!--layout width wrap content & height wrap content-->
+    <style name="WrapWidth.WrapHeight">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <!--
+        set the default attributes for the widgets and components
+    -->
+    <!-- Widget styling -->
+    <style name="Widget" />
+    <!--EditText default theme-->
+    <style name="Widget.EditText" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">textCapSentences</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!--Button default theme-->
+    <style name="Widget.Button" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--TextView default theme-->
+    <style name="Widget.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!--CheckBox default theme-->
+    <style name="Widget.Checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox" />
+    <!--ListView default theme-->
+    <style name="Widget.ListView" parent="@style/Widget.AppCompat.ListView">
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <!--<item name="android:divider">@drawable/match_detail_divider</item>-->
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+    <!--ExpendableListView default theme-->
+    <style name="Widget.ExpandableListView" parent="@android:style/Widget.ExpandableListView">
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <!--<item name="android:divider">@android:color/transparent</item>-->
+    </style>
+    <!--GridView default theme-->
+    <style name="Widget.GridView" parent="@android:style/Widget.GridView">
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+    </style>
+    <!--RadioButton default theme-->
+    <style name="Widget.RadioButton" parent="@style/Widget.AppCompat.CompoundButton.RadioButton" />
+    <!--ProgressDialog default theme-->
+    <style name="Widget.ProgressDialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+    </style>
+
+    <style name="CustomAlertDialogStyle">
+        <item name="android:fullBright">@android:color/transparent</item>
+        <item name="android:fullDark">@android:color/transparent</item>
+        <item name="android:bottomBright">@android:color/transparent</item>
+        <item name="android:bottomDark">@android:color/transparent</item>
+        <item name="android:bottomMedium">@android:color/transparent</item>
+        <item name="android:centerBright">@android:color/transparent</item>
+        <item name="android:centerDark">@android:color/transparent</item>
+        <item name="android:centerMedium">@android:color/transparent</item>
+        <item name="android:topBright">@android:color/transparent</item>
+        <item name="android:topDark">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.Animation" parent="@android:style/Animation">
+        <!--<item name="android:windowEnterAnimation">@anim/slide_in_left</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/slide_out_right</item>-->
+    </style>
+    <!--Spinner default theme-->
+    <style name="Widget.Spinner" parent="@style/Widget.AppCompat.Spinner.Underlined">
+        <item name="backgroundTint">@color/colorAccent_base</item>
+    </style>
+    <!--Spinner dropdown default theme-->
+    <style name="Widget.Spinner.DropDown" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <!-- <item name="android:divider">#FF0000</item> -->
+        <!-- <item name="android:dividerHeight">2dp</item> -->
+        <!-- <item name="android:background">@android:color/transparent</item> -->
+
+    </style>
+
+    <style name="Widget.OverflowButton" parent="@style/Widget.AppCompat.Light.ActionButton.Overflow">
+        <!--<item name="android:src">@drawable/ic_launcher</item>-->
+    </style>
+
+    <style name="Widget.MyDrawerArrowToggle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <!--<item name="color">@color/white</it<item name="android:background">@drawable/edittext_selector</item>em>-->
+    </style>
+
+    <style name="Widget.ProgressDialog.ProgressBarCircle">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <!--Theme for material edit text-->
+    <style name="Widget.MaterialTextInputLayout" parent="TextAppearance.AppCompat">
+        <!--//hint color And Label ColorUtil in False State-->
+        <item name="android:textColorHint">@color/textColor_hint_default_base</item>
+        <item name="android:textSize">@dimen/material_text_size</item>
+        <!--//Label color in True State And Bar ColorUtil False And True State-->
+        <item name="colorAccent">@color/textColor_default_base</item>
+        <item name="colorControlNormal">@color/textColor_default_base</item>
+        <item name="colorControlActivated">@color/textColor_default_base</item>
+    </style>
+    <!-- Style for edittext used on signup screen -->
+    <style name="Widget.MaterialEditText" parent="@style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--drop down list mView style such as autocomplete text mView-->
+    <style name="Widget.DropDownListView" parent="@android:style/Widget.ListView">
+        <item name="android:divider">@color/listview_divider_color_base</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:background">@color/white</item>
+       <!-- <item name="android:listSelector">@color/red</item>-->
+    </style>
+    <!--search autocomplete text view theme-->
+    <style name="Widget.Search" parent="FillWidth.WrapHeight">
+        <!--<item name="android:background">@drawable/search_shape_background</item>-->
+        <item name="android:gravity">center</item>
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/padding_general_half</item>
+    </style>
+
+</resources>
