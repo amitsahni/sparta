@@ -58,7 +58,7 @@ dependencies {
     compile "com.android.support:design:[$VERSION]"
     compile "com.android.support:support-v13:[$VERSION]"
     compile "com.android.support:multidex:[$multidex_version]"
-    compile 'com.google.android.gms:play-services-location:9.6.1'
+    compile "com.google.android.gms:play-services-location:[$play_service_version]"
     /*  Web Calling Retrofit + Okhttp */
     compile "com.squareup.retrofit2:retrofit:[$retrofit_version]"
     compile "com.squareup.retrofit2:converter-gson:[$retrofit_version]"
