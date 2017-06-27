@@ -37,18 +37,18 @@ public class ActivityManagerUtil {
         switch (activityType) {
             case START:
             case START_FINISH:
-                start(activityParam);
-                break;
+            start(activityParam);
+            break;
             case START_RESULT:
             case START_RESULT_FINISH:
-                startResult(activityParam);
-                break;
+            startResult(activityParam);
+            break;
             case FINISH:
-                finish(activityParam);
-                break;
+            finish(activityParam);
+            break;
             default:
-                // nothing happened
-                break;
+            // nothing happened
+            break;
         }
     }
 

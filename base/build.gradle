@@ -26,8 +26,12 @@ android {
         multiDexEnabled true
     }
     buildTypes {
+        debug{
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -59,6 +63,7 @@ dependencies {
     compile "com.android.support:support-v13:[$VERSION]"
     compile "com.android.support:multidex:[$multidex_version]"
     compile "com.google.android.gms:play-services-location:[$play_service_version]"
+    compile "com.google.android.gms:play-services-auth:[$play_service_version]"
     /*  Web Calling Retrofit + Okhttp */
     compile "com.squareup.retrofit2:retrofit:[$retrofit_version]"
     compile "com.squareup.retrofit2:converter-gson:[$retrofit_version]"
@@ -67,7 +72,7 @@ dependencies {
     /*  IO Lib */
     compile 'commons-io:commons-io:2.4'
     compile 'org.apache.commons:commons-lang3:3.4'
-    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.guava:guava:20.0'
     /* ImageLoading */
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
@@ -77,12 +82,11 @@ dependencies {
     /* Pubnub */
     compile group: 'com.pubnub', name: 'pubnub', version: '4.2.0'
     /* Gson parsing */
-    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.code.gson:gson:2.7'
     /* Animations */
     // https://github.com/ToxicBakery/ViewPagerTransforms
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     // https://github.com/xgc1986/ParallaxPagerTransformer
     compile 'com.xgc1986.android:parallaxpagertransformer:1.0.4'
     compile 'com.booking:rtlviewpager:1.0.1'
-    compile 'com.google.android.gms:play-services-auth:9.6.1'
 }

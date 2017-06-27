@@ -29,8 +29,8 @@ import retrofit2.Response;
  * @method initUI() method for initialize User Interface widgets
  */
 public abstract class BaseAppCompatActivity extends AppCompatActivity implements
-        //to identify child tasks and perform on activity itself
-        View.OnClickListener, WebHandler.OnWebCallback, ConnectivityListener{
+//to identify child tasks and perform on activity itself
+        View.OnClickListener, WebHandler.OnWebCallback, ConnectivityListener {
 
     /**
      * The Tag.
@@ -43,8 +43,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     private IntentFilter filter = new IntentFilter(Constant.getActionBroadcastLanguageChanged());
 
 
-
 //
+
     /**
      * Instantiates a new Base activity app compat.
      */
@@ -133,11 +133,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
 
     @Override
     public void recreate() {
-        if (android.os.Build.VERSION.SDK_INT >= 11) {
-            super.recreate();
-        } else {
-            startActivity(getIntent());
-        }
+        super.recreate();
 
     }
 
