@@ -1,20 +1,36 @@
 package android.base.pubnub;
 
+import android.app.Activity;
 import android.base.util.ApplicationUtils;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.iid.InstanceID;
 import com.pubnub.api.PNConfiguration;
 import com.pubnub.api.PubNub;
 import com.pubnub.api.callbacks.PNCallback;
 import com.pubnub.api.callbacks.SubscribeCallback;
+import com.pubnub.api.enums.PNPushType;
 import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
+import com.pubnub.api.models.consumer.push.PNPushAddChannelResult;
+import com.pubnub.api.models.consumer.push.PNPushRemoveChannelResult;
 
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Arrays;
+
+import static android.base.pubnub.PubNubConstant.PLAY_SERVICES_RESOLUTION_REQUEST;
 
 
 /**
@@ -46,7 +62,135 @@ public class Pubnub {
                 }
             }
         }
+        if (pubNubParam.enableGCM) {
+            gcmRegister(pubNubParam);
+        } else {
+            //unRegisterInBackground(pubNubParam);
+        }
 
+    }
+
+    private void gcmRegister(PubNubParam pubNubParam) {
+        if (checkPlayServices(pubNubParam.context)) {
+            String gcmRegId = "";
+            gcmRegId = getRegistrationId(pubNubParam.context);
+            if (gcmRegId.isEmpty()) {
+                registerInBackground(pubNubParam);
+            } else {
+                ApplicationUtils.Log.d("Registration ID already exists: ", gcmRegId);
+            }
+        } else {
+            ApplicationUtils.Log.e("GCM-register", "No valid Google Play Services APK found.");
+        }
+    }
+
+    private void registerInBackground(final PubNubParam pubNubParam) {
+        new AsyncTask() {
+
+            @Override
+            protected String doInBackground(Object[] objects) {
+                String token = "";
+                String msg = "";
+                try {
+                    InstanceID instanceID = InstanceID.getInstance(pubNubParam.context);
+                    token = instanceID.getToken(pubNubParam.senderId,
+                            GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+                    enablePushNotificationsOnChannel(token, pubNubParam);
+                    storeRegistrationId(pubNubParam.context, token);
+                    msg = "Device registered, registration ID: " + token;
+                    ApplicationUtils.Log.i(msg);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    msg = "Error :" + e.getMessage();
+                    ApplicationUtils.Log.e(msg);
+                }
+                return msg;
+            }
+        }.execute();
+    }
+
+    private void storeRegistrationId(@NonNull Context context, String regId) {
+        SharedPreferences prefs = context.getSharedPreferences(PubNubConstant.CHAT_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(PubNubConstant.GCM_REG_ID, regId);
+        editor.apply();
+    }
+
+    private String getRegistrationId(@NonNull Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PubNubConstant.CHAT_PREFS, Context.MODE_PRIVATE);
+        return prefs.getString(PubNubConstant.GCM_REG_ID, "");
+    }
+
+    private void enablePushNotificationsOnChannel(String token, PubNubParam pubNubParam) {
+        sPubnub.addPushNotificationsOnChannels()
+                .channels(Arrays.asList(pubNubParam.channels))
+                .pushType(PNPushType.GCM)
+                .deviceId(token)
+                .async(new PNCallback<PNPushAddChannelResult>() {
+                    @Override
+                    public void onResponse(PNPushAddChannelResult result, PNStatus status) {
+                        ApplicationUtils.Log.i(result.toString());
+                    }
+                });
+    }
+
+    private void disablePushNotificationsOnChannel(String token, PubNubParam pubNubParam) {
+        sPubnub.removePushNotificationsFromChannels()
+                .channels(Arrays.asList(pubNubParam.channels))
+                .pushType(PNPushType.GCM)
+                .deviceId(token)
+                .async(new PNCallback<PNPushRemoveChannelResult>() {
+                    @Override
+                    public void onResponse(PNPushRemoveChannelResult result, PNStatus status) {
+                        ApplicationUtils.Log.i(result.toString());
+                    }
+                });
+    }
+
+    private void unRegisterInBackground(final PubNubParam pubNubParam) {
+        new AsyncTask() {
+
+            @Override
+            protected String doInBackground(Object[] objects) {
+                String token = "";
+                String msg = "";
+                try {
+                    InstanceID instanceID = InstanceID.getInstance(pubNubParam.context);
+                    instanceID.deleteToken(pubNubParam.senderId,
+                            GoogleCloudMessaging.INSTANCE_ID_SCOPE);
+                    token = getRegistrationId(pubNubParam.context);
+                    disablePushNotificationsOnChannel(token, pubNubParam);
+                    token = "";
+                    storeRegistrationId(pubNubParam.context, token);
+                    msg = "Device unRegistered";
+                    ApplicationUtils.Log.i(msg);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    msg = "Error :" + e.getMessage();
+                    ApplicationUtils.Log.e(msg);
+                }
+                return msg;
+            }
+        }.execute();
+    }
+
+
+    private boolean checkPlayServices(@NonNull Context context) {
+        GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
+        int result = googleAPI.isGooglePlayServicesAvailable(context);
+        if (result != ConnectionResult.SUCCESS) {
+            if (googleAPI.isUserResolvableError(result)) {
+                if (context instanceof Activity) {
+                    googleAPI.getErrorDialog((Activity) context, result,
+                            PLAY_SERVICES_RESOLUTION_REQUEST).show();
+                }
+            } else {
+                ApplicationUtils.Log.e("GCM-check", "This device is not supported.");
+            }
+
+            return false;
+        }
+        return true;
 
     }
 
@@ -79,16 +223,25 @@ public class Pubnub {
             case SUB_LIST:
                 return sPubnub.getSubscribedChannels();
             case PUB:
-                sPubnub.publish().message(pubNubParam.message).channel(pubNubParam.channels[0]).async(new PNCallback<PNPublishResult>() {
-                    @Override
-                    public void onResponse(PNPublishResult result, PNStatus status) {
-                        if (!status.isError()) {
-                            ApplicationUtils.Log.i(Pubnub.this.getClass().getSimpleName() + ": " + status.toString());
-                        } else {
-                            ApplicationUtils.Log.e(Pubnub.this.getClass().getSimpleName() + ": Error = " + status.isError());
+                for (String channel : pubNubParam.channels) {
+                    sPubnub.publish().message(pubNubParam.message)
+                            .channel(channel).async(new PNCallback<PNPublishResult>() {
+                        @Override
+                        public void onResponse(PNPublishResult result, PNStatus status) {
+                            if (!status.isError()) {
+                                ApplicationUtils.Log.i(Pubnub.this.getClass().getSimpleName() + ": " + status.toString());
+                            } else {
+                                ApplicationUtils.Log.e(Pubnub.this.getClass().getSimpleName() + ": Error = " + status.isError());
+                            }
                         }
-                    }
-                });
+                    });
+                }
+                break;
+            case ENABLE_GCM:
+                gcmRegister(pubNubParam);
+                break;
+            case DISABLE_GCM:
+                unRegisterInBackground(pubNubParam);
                 break;
             default:
                 break;
@@ -168,8 +321,7 @@ public class Pubnub {
         @Override
         public void message(com.pubnub.api.PubNub pubnub, PNMessageResult message) {
             ApplicationUtils.Log.i("Message = " + MessageFormat.format(FORMAT, message.getChannel(), message.getMessage().toString()));
-            if (pubNubParam.listener != null
-                    && message != null) {
+            if (pubNubParam.listener != null) {
                 pubNubParam.listener.onSuccess(message.getChannel(), message.getMessage());
             }
             if (pubNubParam.context != null) {

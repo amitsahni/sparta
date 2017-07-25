@@ -1,10 +1,12 @@
 package android.base.http;
 
+import android.base.BuildConfig;
 import android.base.R;
 import android.base.util.ApplicationUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import org.apache.commons.io.IOUtils;
 
@@ -13,7 +15,6 @@ import java.io.InputStreamReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.net.ConnectException;
-import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.security.cert.CertificateException;
@@ -21,14 +22,15 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -63,7 +65,9 @@ public class RetrofitManager {
      * @return the t
      */
     public <T> T createService(Class<T> interfaceFile, final WebParam webParam) {
-        mInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        if (BuildConfig.DEBUG) {
+            mInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        }
         mOkHttpClientBuilder.connectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS);
         mOkHttpClientBuilder.readTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS);
         mOkHttpClientBuilder.addInterceptor(new Interceptor() {
@@ -86,6 +90,7 @@ public class RetrofitManager {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(StringConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson));
         builder.client(mOkHttpClientBuilder.build());
         Retrofit retrofit = builder.build();
@@ -103,7 +108,7 @@ public class RetrofitManager {
      *
      * @param <T> the type parameter
      */
-    public static class CallBack<T> implements Callback<T> {
+    public static class CallBack<T> implements Observer<retrofit2.Response<T>> {
         private WebParam webParam;
 
         /**
@@ -116,7 +121,12 @@ public class RetrofitManager {
         }
 
         @Override
-        public void onResponse(Call<T> call, retrofit2.Response<T> response) {
+        public void onSubscribe(@NonNull Disposable d) {
+
+        }
+
+        @Override
+        public void onNext(@NonNull retrofit2.Response<T> response) {
             String res = "";
             try {
                 dismissDialog(webParam);
@@ -150,7 +160,7 @@ public class RetrofitManager {
         }
 
         @Override
-        public void onFailure(Call<T> call, Throwable t) {
+        public void onError(@NonNull Throwable t) {
             try {
                 dismissDialog(webParam);
                 if (webParam.callback != null
@@ -172,6 +182,11 @@ public class RetrofitManager {
             } catch (Exception e) {
                 ApplicationUtils.Log.e(e.getMessage());
             }
+        }
+
+        @Override
+        public void onComplete() {
+
         }
     }
 

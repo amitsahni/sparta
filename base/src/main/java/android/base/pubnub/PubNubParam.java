@@ -53,6 +53,8 @@ public class PubNubParam {
      */
     protected Object message;
 
+    protected String senderId;
+
     /**
      * The enum Event.
      */
@@ -74,7 +76,15 @@ public class PubNubParam {
         /**
          * PUB
          */
-        PUB
+        PUB,
+        /**
+         * EnableGCM
+         */
+        ENABLE_GCM,
+        /**
+         * Disable GCM
+         */
+        DISABLE_GCM
     }
 
     /**

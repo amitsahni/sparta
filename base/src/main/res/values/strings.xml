@@ -2,27 +2,18 @@
     <string name="app_name">Sparta1.0</string>
 
     <string name="loading">Loading&#8230;</string>
-    <string name="loading_capital">LOADING&#8230;</string>
-
-
 
     <!--fonts-->
     <string name="typeface_proximanova_regular">proximanova-regular-webfont.ttf</string>
     <string name="typeface_roboto_light">roboto_light.ttf</string>
     <string name="typeface_roboto_regular">roboto_regular.ttf</string>
     <string name="typeface_roboto_thin">roboto_thin.ttf</string>
+
     <!--Erorr messages-->
-    <string name="error_field_required">This field is required</string>
     <string name="error_no_records_found">No records found!</string>
     <string name="error_webservice">Error in web server response.</string>
     <string name="error_internet_connection">Please check your internet connection.</string>
     <string name="error_server_connection">Can\'t connect to server. Please try after some time.</string>
     <string name="error_certificate_exception">Trust anchor for certification path not found.</string>
 
-    <!-- For time strings -->
-    <string name="days">d</string>
-    <string name="hours">h</string>
-    <string name="minutes">m</string>
-    <string name="seconds">s</string>
-    <string name="justnow_time">justnow</string>
 </resources>

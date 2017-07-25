@@ -32,11 +32,17 @@ public class PubNubConstant {
      * The Broadcast
      */
     public static String BROADCAST = Constant.PACKAGE_NAME + ".pubnub";
+
+    public static final String CHAT_PREFS = "pubnubPref";
+    public static final String GCM_REG_ID = "gcm_reg_id";
+    public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 100;
     /**
      * The Broadcast Bundle Keys
      */
     public static final String BUNDLE_MESSAGE = "message";
     public static final String BUNDLE_CHANNEL = "channel";
+
+
 
     private PubNubConstant() {
 

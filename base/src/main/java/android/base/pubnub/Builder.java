@@ -128,8 +128,9 @@ public class Builder {
      * @param enableGCM the enable gcm
      * @return the builder
      */
-    public Builder enableGCM(boolean enableGCM) {
+    public Builder enableGCM(boolean enableGCM, String senderId) {
         pubNubParam.enableGCM = enableGCM;
+        pubNubParam.senderId = senderId;
         return this;
     }
 
