@@ -55,6 +55,17 @@ public class PubNubParam {
 
     protected String senderId;
 
+    /*History*/
+    protected int count;
+
+    protected boolean includeTimeToken = true;
+
+    protected boolean reverse = false;
+
+    protected Long start = 0L;
+
+    protected Long end = 0L;
+
     /**
      * The enum Event.
      */
@@ -84,7 +95,11 @@ public class PubNubParam {
         /**
          * Disable GCM
          */
-        DISABLE_GCM
+        DISABLE_GCM,
+        /**
+         * CHAT_HISTORY
+         */
+        CHAT_HISTORY
     }
 
     /**

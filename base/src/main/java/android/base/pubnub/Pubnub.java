@@ -21,6 +21,7 @@ import com.pubnub.api.callbacks.SubscribeCallback;
 import com.pubnub.api.enums.PNPushType;
 import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
+import com.pubnub.api.models.consumer.history.PNHistoryResult;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
 import com.pubnub.api.models.consumer.push.PNPushAddChannelResult;
@@ -208,13 +209,18 @@ public class Pubnub {
      *
      * @param pubNubParam the pub nub param
      */
-    public Object handleEvent(PubNubParam pubNubParam) {
+    public Object handleEvent(final PubNubParam pubNubParam) {
         switch (pubNubParam.event) {
             case SUB:
-                sPubnub.subscribe().channels(Arrays.asList(pubNubParam.channels)).execute();
+                sPubnub.subscribe()
+                        .channels(Arrays.asList(pubNubParam.channels))
+                        .withPresence()
+                        .execute();
                 break;
             case UNSUB:
-                sPubnub.unsubscribe().channels(Arrays.asList(pubNubParam.channels)).execute();
+                sPubnub.unsubscribe()
+                        .channels(Arrays.asList(pubNubParam.channels))
+                        .execute();
                 ApplicationUtils.Log.i("All SubScribed:" + sPubnub.getSubscribedChannels().toString());
                 break;
             case UNSUBALL:
@@ -225,16 +231,19 @@ public class Pubnub {
             case PUB:
                 for (String channel : pubNubParam.channels) {
                     sPubnub.publish().message(pubNubParam.message)
-                            .channel(channel).async(new PNCallback<PNPublishResult>() {
-                        @Override
-                        public void onResponse(PNPublishResult result, PNStatus status) {
-                            if (!status.isError()) {
-                                ApplicationUtils.Log.i(Pubnub.this.getClass().getSimpleName() + ": " + status.toString());
-                            } else {
-                                ApplicationUtils.Log.e(Pubnub.this.getClass().getSimpleName() + ": Error = " + status.isError());
-                            }
-                        }
-                    });
+                            .shouldStore(true)
+                            .usePOST(true)
+                            .channel(channel)
+                            .async(new PNCallback<PNPublishResult>() {
+                                @Override
+                                public void onResponse(PNPublishResult result, PNStatus status) {
+                                    if (!status.isError()) {
+                                        ApplicationUtils.Log.i(Pubnub.this.getClass().getSimpleName() + ": " + status.toString());
+                                    } else {
+                                        ApplicationUtils.Log.e(Pubnub.this.getClass().getSimpleName() + ": Error = " + status.isError());
+                                    }
+                                }
+                            });
                 }
                 break;
             case ENABLE_GCM:
@@ -242,6 +251,23 @@ public class Pubnub {
                 break;
             case DISABLE_GCM:
                 unRegisterInBackground(pubNubParam);
+                break;
+            case CHAT_HISTORY:
+                sPubnub.history()
+                        .channel(pubNubParam.channels[0])
+                        .count(pubNubParam.count > 100 ? 100 : pubNubParam.count)
+                        .includeTimetoken(pubNubParam.includeTimeToken)
+                        .reverse(pubNubParam.reverse)
+                        .start(pubNubParam.start > 0L ? pubNubParam.start : null)
+                        .end(pubNubParam.end > 0L ? pubNubParam.end : null)
+                        .async(new PNCallback<PNHistoryResult>() {
+                            @Override
+                            public void onResponse(PNHistoryResult result, PNStatus status) {
+                                if (pubNubParam.listener != null) {
+                                    pubNubParam.listener.onSuccess(status.toString(), result);
+                                }
+                            }
+                        });
                 break;
             default:
                 break;

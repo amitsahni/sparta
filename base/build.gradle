@@ -85,7 +85,7 @@ dependencies {
     /* Circular ImageView */
     compile 'de.hdodenhof:circleimageview:1.3.0'
     /* Pubnub */
-    compile group: 'com.pubnub', name: 'pubnub', version: '4.2.0'
+    compile group: 'com.pubnub', name: 'pubnub-gson', version: '4.7.0'
     /* Gson parsing */
     compile 'com.google.code.gson:gson:2.7'
     /* Animations */

@@ -200,6 +200,10 @@ public class Builder {
         return this;
     }
 
+    public History fetchHistory(){
+        return new History(pubNubParam);
+    }
+
     /**
      * Build.
      */

@@ -1,5 +1,7 @@
 package android.base.util.categories;
 
+import android.base.BuildConfig;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -215,7 +217,7 @@ public class LogUtil {
      */
     private static int logger(int level, String message, Throwable throwable) {
 
-        if (isLogEnabled) {
+        if (BuildConfig.DEBUG) {
             switch (level) {
 
                 case DEBUG:
