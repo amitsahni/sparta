@@ -55,6 +55,8 @@ public class PubNubParam {
 
     protected String senderId;
 
+    protected String uuid = "";
+
     /*History*/
     protected int count;
 
@@ -99,7 +101,23 @@ public class PubNubParam {
         /**
          * CHAT_HISTORY
          */
-        CHAT_HISTORY
+        CHAT_HISTORY,
+        /**
+         *
+         */
+        HERE_NOW,
+        /**
+         *
+         */
+        WHERE_NOW,
+        /**
+         *
+         */
+        GET_PRESENCE,
+        /**
+         *
+         */
+        SET_PRESENCE
     }
 
     /**

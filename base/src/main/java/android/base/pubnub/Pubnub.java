@@ -22,6 +22,10 @@ import com.pubnub.api.enums.PNPushType;
 import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.history.PNHistoryResult;
+import com.pubnub.api.models.consumer.presence.PNGetStateResult;
+import com.pubnub.api.models.consumer.presence.PNHereNowResult;
+import com.pubnub.api.models.consumer.presence.PNSetStateResult;
+import com.pubnub.api.models.consumer.presence.PNWhereNowResult;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
 import com.pubnub.api.models.consumer.push.PNPushAddChannelResult;
@@ -52,7 +56,7 @@ public class Pubnub {
      */
     public Pubnub(PubNubParam pubNubParam) {
         if (sPubnub == null) {
-            synchronized (PubNubManager.class) {
+            synchronized (Pubnub.class) {
                 if (sPubnub == null) {
                     PNConfiguration pnConfiguration = new PNConfiguration();
                     pnConfiguration.setSubscribeKey(pubNubParam.subscribe_key);
@@ -237,10 +241,13 @@ public class Pubnub {
                             .async(new PNCallback<PNPublishResult>() {
                                 @Override
                                 public void onResponse(PNPublishResult result, PNStatus status) {
-                                    if (!status.isError()) {
+                                    if (status.isError()) {
+                                        // handle error
                                         ApplicationUtils.Log.i(Pubnub.this.getClass().getSimpleName() + ": " + status.toString());
-                                    } else {
-                                        ApplicationUtils.Log.e(Pubnub.this.getClass().getSimpleName() + ": Error = " + status.isError());
+                                        return;
+                                    }
+                                    if (pubNubParam.listener != null) {
+                                        pubNubParam.listener.onSuccess(status.toString(), result);
                                     }
                                 }
                             });
@@ -263,6 +270,80 @@ public class Pubnub {
                         .async(new PNCallback<PNHistoryResult>() {
                             @Override
                             public void onResponse(PNHistoryResult result, PNStatus status) {
+                                if (status.isError()) {
+                                    // handle error
+                                    ApplicationUtils.Log.i(Pubnub.this.getClass().getSimpleName() + ": " + status.toString());
+                                    return;
+                                }
+                                if (pubNubParam.listener != null) {
+                                    pubNubParam.listener.onSuccess(status.toString(), result);
+                                }
+                            }
+                        });
+                break;
+            case HERE_NOW:
+                sPubnub.hereNow()
+                        // tailor the next two lines to example
+                        .channels(Arrays.asList(pubNubParam.channels))
+                        .includeUUIDs(true)
+                        .includeState(true)
+                        .async(new PNCallback<PNHereNowResult>() {
+                            @Override
+                            public void onResponse(PNHereNowResult result, PNStatus status) {
+                                if (status.isError()) {
+                                    // handle error
+                                    return;
+                                }
+                                if (pubNubParam.listener != null) {
+                                    pubNubParam.listener.onSuccess(status.toString(), result);
+                                }
+                            }
+                        });
+                break;
+            case WHERE_NOW:
+                sPubnub.whereNow()
+                        .uuid(pubNubParam.uuid)
+                        .async(new PNCallback<PNWhereNowResult>() {
+                            @Override
+                            public void onResponse(PNWhereNowResult result, PNStatus status) {
+                                if (status.isError()) {
+                                    // handle error
+                                    return;
+                                }
+                                if (pubNubParam.listener != null) {
+                                    pubNubParam.listener.onSuccess(status.toString(), result);
+                                }
+                            }
+                        });
+                break;
+            case GET_PRESENCE:
+                sPubnub.getPresenceState()
+                        .channels(Arrays.asList(pubNubParam.channels)) // channels to fetch state for
+                        .uuid(pubNubParam.uuid) // uuid of user to fetch, or omit own uuid
+                        .async(new PNCallback<PNGetStateResult>() {
+                            @Override
+                            public void onResponse(PNGetStateResult result, PNStatus status) {
+                                if (status.isError()) {
+                                    // handle error
+                                    return;
+                                }
+                                if (pubNubParam.listener != null) {
+                                    pubNubParam.listener.onSuccess(status.toString(), result);
+                                }
+                            }
+                        });
+                break;
+            case SET_PRESENCE:
+                sPubnub.setPresenceState()
+                        .channels(Arrays.asList(pubNubParam.channels))  // apply on those channel groups
+                        .state(pubNubParam.message) // the new state
+                        .async(new PNCallback<PNSetStateResult>() {
+                            @Override
+                            public void onResponse(PNSetStateResult result, PNStatus status) {
+                                if (status.isError()) {
+                                    // handle error
+                                    return;
+                                }
                                 if (pubNubParam.listener != null) {
                                     pubNubParam.listener.onSuccess(status.toString(), result);
                                 }
