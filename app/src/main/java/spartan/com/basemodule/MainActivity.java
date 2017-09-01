@@ -5,6 +5,7 @@ import android.base.http.Builder;
 import android.base.http.RetrofitManager;
 import android.base.http.WebConnect;
 import android.base.http.WebParam;
+import android.base.pubnub.PubNubManager;
 import android.base.util.ApplicationUtils;
 
 import com.github.privacystreams.communication.Contact;
@@ -51,6 +52,8 @@ public class MainActivity extends BaseAppCompatActivity {
         observable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new RetrofitManager.CallBack<>(builder.getWebParam()));
+
+
     }
 
 
