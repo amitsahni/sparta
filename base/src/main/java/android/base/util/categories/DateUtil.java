@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import java.lang.*;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,21 +21,7 @@ import java.util.concurrent.TimeUnit;
  * The type Date util.
  */
 public class DateUtil {
-    /**
-     * private constructor
-     */
-//	private date() {
-//	}
 
-    public static final int YESTERDAY = -1;
-    /**
-     * The constant TODAY.
-     */
-    public static final int TODAY = 0;
-    /**
-     * The constant TOMORROW.
-     */
-    public static final int TOMORROW = 1;
 
     /**
      * Gets the current year
@@ -128,10 +112,6 @@ public class DateUtil {
         return now - c.getTimeInMillis();
     }
 
-    public static SimpleDateFormat getDateFormat() {
-        return getDateFormatBase(null, null, null);
-    }
-
     public static SimpleDateFormat getDateFormat(@NonNull String format) {
         return getDateFormatBase(format, null, null);
     }
@@ -146,17 +126,12 @@ public class DateUtil {
         return getDateFormatBase(format, timeZone, locale);
     }
 
-    private static SimpleDateFormat getDateFormatBase(String format,
+    private static SimpleDateFormat getDateFormatBase(@NonNull String format,
                                                       String timeZone, Locale locale) {
         if (locale == null) {
             locale = Locale.ENGLISH;
         }
-        SimpleDateFormat simpleFormat;
-        if(format == null){
-            simpleFormat = new SimpleDateFormat();
-        }else{
-            simpleFormat = new SimpleDateFormat(format, locale);
-        }
+        SimpleDateFormat simpleFormat = new SimpleDateFormat(format, locale);
         if (timeZone != null) {
             simpleFormat.setTimeZone(TimeZone.getTimeZone(timeZone));
         } else {
@@ -335,7 +310,7 @@ public class DateUtil {
     @Nullable
     public static Date convertLocalDateToUTC(long localMilli) {
         Date date = null;
-        SimpleDateFormat format = getDateFormat();
+        SimpleDateFormat format = getDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
         String localDate = format.format(new Date(localMilli));
         try {
