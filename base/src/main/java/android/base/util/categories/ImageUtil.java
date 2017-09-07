@@ -28,7 +28,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import id.zelory.compressor.Compressor;
 
 /**
  * The type Image util.
@@ -264,15 +263,5 @@ public class ImageUtil {
         DrawableCompat.wrap(d);
         DrawableCompat.setTintList(d, ContextCompat.getColorStateList(context, resId));
         return d;
-    }
-
-    /**
-     * To compress Image
-     *
-     * @param context the context
-     * @return Compressor
-     */
-    public static Compressor compressor(Context context) {
-        return Compressor.getDefault(context);
     }
 }

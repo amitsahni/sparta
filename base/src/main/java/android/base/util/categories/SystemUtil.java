@@ -1,11 +1,8 @@
 package android.base.util.categories;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Service;
-import android.base.R;
-import android.base.constant.Constant;
 import android.base.util.ApplicationUtils;
 import android.content.Context;
 import android.content.Intent;
@@ -67,72 +64,18 @@ public class SystemUtil {
      * Common Buffer Size
      */
     static final int BUFFER = 2048;
-    private static final int PROXIMANOVA = 0;
-    private static final int ROBOTIC_REGULAR = 1;
-    private static final int ROBOTIC_LIGHT = 2;
-    private static final int ROBOTIC_THIN = 3;
-
-    /**
-     * Is lollipop boolean.
-     *
-     * @return the boolean
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public static boolean isLollipop() {
-        return Build.VERSION.SDK_INT >= Constant.BUILD_VERSION_LOLLIPOP;
-    }
-
-    /**
-     * Is lollipop or below boolean.
-     *
-     * @return the boolean
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public static boolean isLollipopOrBelow() {
-        return Build.VERSION.SDK_INT <= Constant.BUILD_VERSION_LOLLIPOP;
-    }
-
-    /**
-     * Is jelly bean boolean.
-     *
-     * @return the boolean
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public static boolean isJellyBean() {
-        return Build.VERSION.SDK_INT >= Constant.BUILD_VERSION_JELLY_BEAN_MR1;
-    }
-
 
     /**
      * Gets font name.
      *
      * @param context   the context
-     * @param resId     the res id
      * @param stringRes the string res
      * @return the font name
      */
-    public static String getFontName(Context context, int resId, @StringRes int stringRes) {
-        String fontName;
+    public static String getFontName(Context context, @StringRes int stringRes) {
+        String fontName = "";
         if (stringRes > 0) {
             fontName = getFont(context, stringRes);
-        } else {
-            switch (resId) {
-                case PROXIMANOVA:
-                    fontName = getFont(context, R.string.typeface_proximanova_regular);
-                    break;
-                case ROBOTIC_REGULAR:
-                    fontName = getFont(context, R.string.typeface_roboto_regular);
-                    break;
-                case ROBOTIC_LIGHT:
-                    fontName = getFont(context, R.string.typeface_roboto_light);
-                    break;
-                case ROBOTIC_THIN:
-                    fontName = getFont(context, R.string.typeface_roboto_thin);
-                    break;
-                default:
-                    fontName = getFont(context, stringRes);
-                    break;
-            }
         }
         return fontName;
     }

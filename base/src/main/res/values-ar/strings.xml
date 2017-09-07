@@ -2,13 +2,6 @@
     <string name="app_name">Sparta1.0</string>
 
     <string name="loading">جار التحميل…</string>
-
-    <!--fonts-->
-    <string name="typeface_proximanova_regular">proximanova-regular-webfont.ttf</string>
-    <string name="typeface_roboto_light">roboto_light.ttf</string>
-    <string name="typeface_roboto_regular">roboto_regular.ttf</string>
-    <string name="typeface_roboto_thin">roboto_thin.ttf</string>
-
     <!--Erorr messages-->
     <string name="error_no_records_found">لا توجد سجلات!</string>
     <string name="error_webservice">حدث خطأ في استجابة خادم الويب</string>
@@ -16,4 +9,10 @@
     <string name="error_server_connection">يتعذر الاتصال بالخادم. يرجى المحاولة بعد مرور بعض الوقت</string>
     <string name="error_certificate_exception">لم يتم العثور على مرساة الثقة لمسار الاعتماد</string>
 
+    <!-- For time strings -->
+    <string name="days">يوم</string>
+    <string name="hours">ساعة</string>
+    <string name="minutes">دقيقة</string>
+    <string name="seconds">ثانية</string>
+    <string name="justnow_time">الان</string>
 </resources>

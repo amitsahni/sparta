@@ -2,7 +2,6 @@ package android.base.adapter;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.base.fragment.BaseFragment;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v13.app.FragmentPagerAdapter;

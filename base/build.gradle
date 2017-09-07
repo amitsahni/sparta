@@ -1,17 +1,10 @@
 apply plugin: 'com.android.library'
 
-
 def VERSION = project.ext.ANDROID_BUILD_VERSION
 def compileSdk = project.ext.ANDROID_BUILD_COMPILE_SDK_VERSION
 def buildTools = project.ext.ANDROID_BUILD_TOOLS_VERSION
 def minSdk = project.ext.ANDROID_BUILD_MIN_SDK_VERSION
 def targetSdk = project.ext.ANDROID_BUILD_TARGET_SDK_VERSION
-def version_code = project.ext.VERSION_CODE
-def version_name = project.ext.VERSION_NAME
-def retrofit_version = project.ext.RETROFIT_VERSION
-def okhttp_version = project.ext.OKHTTP_VERSION
-def play_service_version = project.ext.PLAY_SERVICE_VERSION
-def multidex_version = project.ext.MULTIDEX_VERSION
 
 android {
     compileSdkVersion compileSdk
@@ -20,38 +13,16 @@ android {
     defaultConfig {
         minSdkVersion minSdk
         targetSdkVersion targetSdk
-        versionCode version_code
-        versionName version_name
-        // Have to copy paste in app module
-        multiDexEnabled true
     }
     buildTypes {
-        debug{
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        debug {
+            debuggable true
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    // Have to copy paste in app module
-//    packagingOptions {
-//        exclude 'META-INF/LICENSE.txt'
-//        exclude 'META-INF/NOTICE.txt'
-//        exclude 'libs/jackson-core-2.7.3.jar'
-//        exclude 'libs/jackson-annotations-2.7.3.jar'
-//        exclude 'libs/jackson-databind-2.7.2.jar'
-//        exclude 'META-INF/ASL2.0'
-//        exclude 'META-INF/LICENSE'
-//        exclude 'META-INF/NOTICE'
-//    }
-//    // Have to copy paste in app module
-//    dexOptions {
-//        preDexLibraries = false
-//        jumboMode = false
-//        javaMaxHeapSize "4g"
-//    }
 
 }
 
@@ -61,38 +32,12 @@ dependencies {
     compile "com.android.support:appcompat-v7:[$VERSION]"
     compile "com.android.support:design:[$VERSION]"
     compile "com.android.support:support-v13:[$VERSION]"
-    compile "com.android.support:multidex:[$multidex_version]"
-    compile "com.google.android.gms:play-services-location:[$play_service_version]"
-    compile "com.google.android.gms:play-services-auth:[$play_service_version]"
-    compile "com.google.android.gms:play-services-gcm:[$play_service_version]"
-    /*  Web Calling Retrofit + Okhttp */
-    compile "com.squareup.retrofit2:retrofit:[$retrofit_version]"
-    compile "com.squareup.retrofit2:converter-gson:[$retrofit_version]"
-//    compile "com.squareup.okhttp3:okhttp:[$okhttp_version]"
-//    compile "com.squareup.okhttp3:logging-interceptor:[$okhttp_version]"
-    // Reactive Android and Java
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
-    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
     /*  IO Lib */
     compile 'commons-io:commons-io:2.4'
     compile 'org.apache.commons:commons-lang3:3.4'
     compile 'com.google.guava:guava:20.0'
-    /* ImageLoading */
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
-    compile 'id.zelory:compressor:1.0.4'
-    /* Circular ImageView */
-    compile 'de.hdodenhof:circleimageview:1.3.0'
-    /* Pubnub */
-    compile group: 'com.pubnub', name: 'pubnub-gson', version: '4.7.0'
-    /* Gson parsing */
-    compile 'com.google.code.gson:gson:2.7'
-    /* Animations */
-    // https://github.com/ToxicBakery/ViewPagerTransforms
-    compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
-    // https://github.com/xgc1986/ParallaxPagerTransformer
-    compile 'com.xgc1986.android:parallaxpagertransformer:1.0.4'
+
     compile 'com.booking:rtlviewpager:1.0.1'
 
 }

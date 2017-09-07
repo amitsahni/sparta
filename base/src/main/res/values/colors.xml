@@ -13,22 +13,6 @@
     <color name="colorPrimaryDark_base">@color/red</color>
     <color name="colorAccent_base">@color/black</color>
 
-    <!--Application theme color-->
-    <color name="app_theme_base">@color/colorPrimary_base</color>
-
-    <!--Text colors-->
-    <color name="textColor_default_base">@color/white</color>
-    <color name="textColor_hint_default_base">@color/grey</color>
-
-    <!--toolbar color-->
-    <color name="toolbar_color_base">@color/textColor_default_base</color>
-
-    <!--listview divider color-->
-    <color name="listview_divider_color_base">@android:color/transparent</color>
-
-    <!--tab color-->
-    <color name="textColor_tab_unseleted_base">#BEBEC3</color>
-
     <!--gradient colors for base of imageview-->
     <color name="gradient_top_base">#00131518</color>
     <color name="gradient_center_base">#66131518</color>

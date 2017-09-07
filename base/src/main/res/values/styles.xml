@@ -5,7 +5,7 @@
 
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <!--set default application background-->
-        <item name="android:windowBackground">@color/app_theme_base</item>
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:windowDisablePreview">true</item>
         <!-- Customize your theme here. for Lollipop-->
         <!-- colorPrimary is used for the default action bar background -->

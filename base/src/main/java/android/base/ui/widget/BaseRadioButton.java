@@ -28,8 +28,7 @@ public class BaseRadioButton extends AppCompatRadioButton {
 
             TypedArray a = context.obtainStyledAttributes(attrs,
                     R.styleable.BaseTextView, 0, 0);
-            String typeface = ApplicationUtils.System.getFontName(getContext(), a
-                    .getInt(R.styleable.BaseTextView_typefaces, -1), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
+            String typeface = ApplicationUtils.System.getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
             if (!TextUtils.isEmpty(typeface))
                 setTypeface(Typeface.createFromAsset(context.getAssets(),
                         typeface));

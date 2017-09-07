@@ -17,6 +17,6 @@
         style="@style/WrapWidth.WrapHeight"
         android:layout_below="@id/dialog_progress_baseProgressBar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_general"
+        android:layout_marginTop="@dimen/horizontal_margin"
         android:text="@string/loading" />
 </RelativeLayout>

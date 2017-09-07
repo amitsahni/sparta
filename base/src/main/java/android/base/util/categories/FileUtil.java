@@ -1,7 +1,6 @@
 package android.base.util.categories;
 
 import android.annotation.TargetApi;
-import android.base.constant.Constant;
 import android.base.util.ApplicationUtils;
 import android.content.ContentUris;
 import android.content.Context;
@@ -351,7 +350,7 @@ public class FileUtil extends FileUtils {
 
     private static boolean hasExternalStoragePermission(Context context) {
         int perm = context
-                .checkCallingOrSelfPermission(Constant.EXTERNAL_STORAGE_PERMISSION);
+                .checkCallingOrSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE");
         return perm == PackageManager.PERMISSION_GRANTED;
     }
 

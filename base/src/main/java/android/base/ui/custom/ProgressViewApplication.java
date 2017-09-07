@@ -1,14 +1,12 @@
 package android.base.ui.custom;
 
+import android.app.Dialog;
 import android.base.R;
-import android.base.dialog.BaseDialog;
-import android.base.dialog.BaseProgressDialog;
-import android.base.util.ApplicationUtils;
 import android.base.ui.widget.BaseProgressBar;
 import android.base.ui.widget.BaseTextView;
+import android.base.util.ApplicationUtils;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
@@ -16,7 +14,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 /**
@@ -160,7 +157,7 @@ public class ProgressViewApplication extends RelativeLayout {
     /**
      * The type Custom dialog.
      */
-    public class CustomDialog extends BaseDialog {
+    public class CustomDialog extends Dialog {
 
         /**
          * Instantiates a new Custom dialog.

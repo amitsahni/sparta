@@ -1,7 +1,17 @@
 package android.base.util;
 
-import android.base.util.categories.*;
-import android.content.Context;
+import android.base.util.categories.AnimationUtil;
+import android.base.util.categories.ColorUtil;
+import android.base.util.categories.DateUtil;
+import android.base.util.categories.FileUtil;
+import android.base.util.categories.LocationUtil;
+import android.base.util.categories.LogUtil;
+import android.base.util.categories.MathUtil;
+import android.base.util.categories.PrefUtil;
+import android.base.util.categories.SecurityUtil;
+import android.base.util.categories.SystemUtil;
+import android.base.util.categories.ValidatorUtil;
+import android.base.util.categories.VoiceUtil;
 
 
 /**
@@ -96,10 +106,4 @@ public final class ApplicationUtils {
 
     }
 
-    /**
-     * The type Locale
-     */
-    public static class Locale extends LocaleUtil {
-
-    }
 }
