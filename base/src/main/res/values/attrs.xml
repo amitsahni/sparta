@@ -23,7 +23,16 @@
         <attr name="android:tint" />
     </declare-styleable>
     <declare-styleable name="BaseSwipeRefreshLayout">
-        <attr name="progressBackgroundColor" format="color"/>
+        <attr name="progressBackgroundColor" format="color" />
         <attr name="progressColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="FloatingSpinner">
+        <!-- The text that is displayed on the floating label -->
+        <attr name="labelText" format="string" />
+        <!-- Specifies the color of the label and the bottom line -->
+        <attr name="labelTextColor" format="color" />
+        <!-- Sets the array to be displayed on the Spinner -->
+        <attr name="spinnerEntries" format="reference" />
     </declare-styleable>
 </resources>

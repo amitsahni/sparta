@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner">
+        <item>Apple</item>
+        <item>IOS</item>
+        <item>Microsoft</item>
+        <item>Ubuntu</item>
+    </string-array>
+
+</resources>

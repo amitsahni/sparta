@@ -48,10 +48,17 @@ android {
         jumboMode = false
         javaMaxHeapSize "4g"
     }
+    allprojects {
+        repositories {
+            maven { url "https://jitpack.io" }
+        }
+    }
 }
 
 dependencies {
     compile project(':base')
     // Util
     compile 'com.github.privacystreams:privacystreams-core:0.1.4'
+    compile 'com.github.amitclickapps:pubnub-util:1.0.4'
+//    compile 'com.github.amitclickapps:pubnub-util:master-SNAPSHOT'
 }

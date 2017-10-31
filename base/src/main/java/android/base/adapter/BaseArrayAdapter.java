@@ -34,7 +34,8 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public abstract class BaseArrayAdapter<T> extends ArrayAdapter {
     private List<T> mList = new ArrayList<>();
-    private Activity mContext;
+    private Activity mActivity;
+    private Context mContext;
 
     /**
      * Instantiates a new Base array adapter.
@@ -43,6 +44,7 @@ public abstract class BaseArrayAdapter<T> extends ArrayAdapter {
      */
     public BaseArrayAdapter(Context context) {
         super(context, android.R.layout.simple_list_item_1);
+        this.mContext = context;
     }
 
     /**
@@ -52,7 +54,7 @@ public abstract class BaseArrayAdapter<T> extends ArrayAdapter {
      */
     public BaseArrayAdapter(Activity context) {
         super(context, android.R.layout.simple_list_item_1);
-        this.mContext = context;
+        this.mActivity = context;
     }
 
     /**
@@ -102,6 +104,6 @@ public abstract class BaseArrayAdapter<T> extends ArrayAdapter {
      */
     @Nullable
     public Activity getActivityContext() {
-        return mContext;
+        return mActivity;
     }
 }
