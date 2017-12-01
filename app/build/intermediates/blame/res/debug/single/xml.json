@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/build/intermediates/res/merged/debug/xml/accessibility_config.xml",
+        "source": "/home/clickapps/.android/build-cache/7a3bb27c09e5e94890b9a7885f4660d374447727/output/res/xml/accessibility_config.xml"
+    },
+    {
+        "merged": "/media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/build/intermediates/res/merged/debug/xml/ps_file_provider.xml",
+        "source": "/home/clickapps/.android/build-cache/7a3bb27c09e5e94890b9a7885f4660d374447727/output/res/xml/ps_file_provider.xml"
+    }
+]

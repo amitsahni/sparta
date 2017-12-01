@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sparta1.0</string>
+    <string name="days">يوم</string>
+    <string name="error_certificate_exception">لم يتم العثور على مرساة الثقة لمسار الاعتماد</string>
+    <string name="error_internet_connection">الرجاء التحقق من اتصال الانترنت الخاص بك</string>
+    <string name="error_no_records_found">لا توجد سجلات!</string>
+    <string name="error_server_connection">يتعذر الاتصال بالخادم. يرجى المحاولة بعد مرور بعض الوقت</string>
+    <string name="error_webservice">حدث خطأ في استجابة خادم الويب</string>
+    <string name="hours">ساعة</string>
+    <string name="justnow_time">الان</string>
+    <string name="loading">جار التحميل…</string>
+    <string name="minutes">دقيقة</string>
+    <string name="seconds">ثانية</string>
+</resources>

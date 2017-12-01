@@ -1,0 +1,39 @@
+android.base.adapter.BaseFooterRecyclerViewAdapter:
+    private static final int TYPE_FOOTER
+    private static final int TYPE_ADAPTEE_OFFSET
+android.base.adapter.BaseHeaderFooterRecyclerViewAdapter:
+    private static final int TYPE_HEADER
+    private static final int TYPE_FOOTER
+    private static final int TYPE_ADAPTEE_OFFSET
+    private android.content.Context context
+    private android.base.adapter.BaseRecyclerViewAdapter$OnItemClickListener itemClickListener
+    private android.base.adapter.BaseRecyclerViewAdapter$OnItemLongClickListener itemLongClickListener
+android.base.ui.custom.BaseImageViewLoading:
+    private float minHeight
+    private float minWidth
+android.base.ui.custom.GridViewWithHeaderAndFooter:
+    private static final java.lang.String LOG_TAG
+android.base.util.categories.DateUtil:
+    private static final long ONE_SECOND
+    private static final long HALF_SECONDS
+    private static final long ONE_MINUTE
+    private static final long MINUTES
+    private static final long ONE_HOUR
+    private static final long HOURS
+    private static final long ONE_DAY
+android.base.util.categories.FileUtil:
+    private static final int BUFFER_SIZE
+    private static final java.lang.String FILE_NAME
+    private static final java.lang.String FILE_NAME_IMAGE
+    private static final java.lang.String FILE_NAME_VIDEO
+    private static final java.lang.String FILE_NAME_CAMERA_IMAGE
+android.base.util.categories.MathUtil:
+    private static final float DEG_TO_RAD
+    private static final float RAD_TO_DEG
+android.base.util.categories.PermissionUtils:
+    25:27:private static java.lang.String[] requestLocationPermission()
+android.base.util.categories.SystemUtil:
+    static final int BUFFER
+android.base.util.categories.ValidatorUtil:
+    private static final java.lang.String PASS_PATTERN
+    private static final java.lang.String USERNAME_PATTEN

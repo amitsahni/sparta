@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/base/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/base/src/release/jniLibs"/></dataSet></merger>

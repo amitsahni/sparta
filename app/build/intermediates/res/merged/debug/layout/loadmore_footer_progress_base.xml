@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/FillWidth.WrapHeight"
+    android:orientation="vertical">
+
+    <android.base.ui.widget.BaseProgressBar
+        android:id="@id/loadmore_footer_progressViewApplication"
+        style="@style/WrapWidth.WrapHeight"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/dialog_progress_indeterminate" />
+</LinearLayout>
