@@ -10,8 +10,8 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.2"
     defaultConfig {
         applicationId "spartan.com.basemodule"
         minSdkVersion 17
@@ -59,6 +59,5 @@ dependencies {
     compile project(':base')
     // Util
     compile 'com.github.privacystreams:privacystreams-core:0.1.4'
-    compile 'com.github.amitclickapps:pubnub-util:1.0.4'
 //    compile 'com.github.amitclickapps:pubnub-util:master-SNAPSHOT'
 }
