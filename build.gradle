@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -24,14 +24,19 @@ allprojects {
         // Globle Gradle Variables
         ANDROID_BUILD_COMPILE_SDK_VERSION = 27
         ANDROID_BUILD_MIN_SDK_VERSION = 17
-        ANDROID_BUILD_TARGET_SDK_VERSION = 23
-        ANDROID_BUILD_SDK_VERSION = 24
-        ANDROID_BUILD_TOOLS_VERSION = "27.0.2"
-        ANDROID_BUILD_VERSION = "27.0.2"
-
+        ANDROID_BUILD_TOOLS_VERSION = "27.0.3"
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext.deps = [
+        appcompat    : 'com.android.support:appcompat-v7:27.0.2',
+        design      : 'com.android.support:design:27.0.2',
+        support13   : 'com.android.support:support-v13:27.0.2',
+        commonsio    : 'commons-io:commons-io:2.4',
+        commonslang : 'org.apache.commons:commons-lang3:3.4',
+        guava       : 'com.google.guava:guava:20.0',
+        rtlviewpager: 'com.booking:rtlviewpager:1.0.1'
+]
