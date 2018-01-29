@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
-
+def compileSdk = project.ext.ANDROID_BUILD_COMPILE_SDK_VERSION
+def buildTools = project.ext.ANDROID_BUILD_TOOLS_VERSION
+def minSdk = project.ext.ANDROID_BUILD_MIN_SDK_VERSION
 android {
     configurations {
         all*.exclude group: 'com.squareup.okhttp3', module: 'okhttp'
@@ -10,18 +12,18 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
-    compileSdkVersion 27
-    buildToolsVersion "27.0.2"
+    compileSdkVersion compileSdk
+    buildToolsVersion buildTools
     defaultConfig {
         applicationId "spartan.com.basemodule"
-        minSdkVersion 17
+        minSdkVersion minSdk
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
     }
     buildTypes {
-        debug{
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

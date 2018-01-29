@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
 
-def VERSION = project.ext.ANDROID_BUILD_VERSION
 def compileSdk = project.ext.ANDROID_BUILD_COMPILE_SDK_VERSION
 def buildTools = project.ext.ANDROID_BUILD_TOOLS_VERSION
 def minSdk = project.ext.ANDROID_BUILD_MIN_SDK_VERSION
-def targetSdk = project.ext.ANDROID_BUILD_TARGET_SDK_VERSION
 
 android {
     compileSdkVersion compileSdk
@@ -12,7 +10,7 @@ android {
 
     defaultConfig {
         minSdkVersion minSdk
-        targetSdkVersion targetSdk
+        targetSdkVersion minSdk
     }
     buildTypes {
         debug {
@@ -29,14 +27,13 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     /* Support Lib v4,v7,Material,V13 */
-    compile "com.android.support:appcompat-v7:[$VERSION]"
-    compile "com.android.support:design:[$VERSION]"
-    compile "com.android.support:support-v13:[$VERSION]"
+    compile deps.appcompat
+    compile deps.design
+    compile deps.support13
     /*  IO Lib */
-    compile 'commons-io:commons-io:2.4'
-    compile 'org.apache.commons:commons-lang3:3.4'
-    compile 'com.google.guava:guava:20.0'
-
-    compile 'com.booking:rtlviewpager:1.0.1'
+    compile deps.commonsio
+    compile deps.commonslang
+    compile deps.guava
+    compile deps.rtlviewpager
 
 }
