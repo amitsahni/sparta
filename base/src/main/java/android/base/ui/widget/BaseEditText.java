@@ -4,14 +4,20 @@ package android.base.ui.widget;
 import android.base.R;
 import android.base.util.ApplicationUtils;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatEditText;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
+import android.widget.Checkable;
 
 
 /**
@@ -24,7 +30,7 @@ import android.util.AttributeSet;
  *
  * @author amit.singh
  */
-public class BaseEditText extends AppCompatEditText {
+public class BaseEditText extends AppCompatEditText implements Checkable {
 
     /**
      * Instantiates a new Base edit text.
@@ -64,6 +70,47 @@ public class BaseEditText extends AppCompatEditText {
             if (textAllCaps) {
                 setText(ApplicationUtils.Validator.upperCase(getText().toString()));
             }
+            int resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
+            if (resId != -1) {
+                ColorStateList tint = ContextCompat.getColorStateList(getContext(), resId);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    // Call some material design APIs here
+                    setCompoundDrawableTintList(tint);
+                } else {
+                    // Implement this feature without material design
+                    Drawable[] drawable = getCompoundDrawablesRelative();
+                    Drawable start = drawable[0];
+                    Drawable top = drawable[1];
+                    Drawable end = drawable[2];
+                    Drawable bottom = drawable[3];
+                    if (start != null) {
+                        start = DrawableCompat.wrap(start);
+                        DrawableCompat.setTintList(start, tint);
+                    }
+                    if (top != null) {
+                        top = DrawableCompat.wrap(top);
+                        DrawableCompat.setTintList(top, tint);
+                    }
+                    if (end != null) {
+                        end = DrawableCompat.wrap(end);
+                        DrawableCompat.setTintList(end, tint);
+                    }
+                    if (bottom != null) {
+                        bottom = DrawableCompat.wrap(bottom);
+                        DrawableCompat.setTintList(bottom, tint);
+                    }
+                    setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+                }
+            }
+            a.recycle();
+
+            int attrss[] = {
+                    android.R.attr.checked
+            };
+            a = context.obtainStyledAttributes(attrs,
+                    attrss, 0, 0);
+            boolean isChecked = a.getBoolean(0, false);
+            setChecked(isChecked);
             a.recycle();
         }
     }
@@ -85,5 +132,42 @@ public class BaseEditText extends AppCompatEditText {
         float scaledDensity = getResources().getDisplayMetrics().scaledDensity;
         int sp = (int) (px / scaledDensity);
         setTextSize(sp);
+    }
+
+    private static final int[] CheckedStateSet = {android.R.attr.state_checked};
+
+    private boolean mChecked = false;
+
+    @Override
+    public boolean isChecked() {
+        return mChecked;
+    }
+
+    @Override
+    public void setChecked(boolean b) {
+        if (b != mChecked) {
+            mChecked = b;
+        }
+        refreshDrawableState();
+    }
+
+    @Override
+    public void toggle() {
+        setChecked(!isChecked());
+    }
+
+    @Override
+    public int[] onCreateDrawableState(int extraSpace) {
+        final int[] drawableState = super.onCreateDrawableState(extraSpace + 1);
+        if (isChecked()) {
+            mergeDrawableStates(drawableState, CheckedStateSet);
+        }
+        return drawableState;
+    }
+
+    @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        invalidate();
     }
 }

@@ -62,4 +62,6 @@ dependencies {
     // Util
     compile 'com.github.privacystreams:privacystreams-core:0.1.4'
 //    compile 'com.github.amitclickapps:pubnub-util:master-SNAPSHOT'
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    compile 'com.github.florent37:viewanimator:1.0.5'
 }

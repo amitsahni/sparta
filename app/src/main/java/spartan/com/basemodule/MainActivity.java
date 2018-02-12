@@ -1,6 +1,7 @@
 package spartan.com.basemodule;
 
 import android.base.ui.custom.FloatingSpinner;
+import android.base.util.categories.AnimationUtil;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -10,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
+import com.github.florent37.viewanimator.ViewAnimator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,17 @@ public class MainActivity extends AppCompatActivity {
 //        Adapter adapter = new Adapter(this, android.R.layout.simple_spinner_item);
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinner.setCustomAdapter(adapter);
+        View view = findViewById(android.R.id.text1);
+//        AnimationUtil.hide(view);
+        ViewAnimator
+                .animate(view)
+                .duration(5000)
+                .alpha(0.5f,0.9f)
+                .fadeIn()
+                .thenAnimate(spinner)
+                .tada()
+                .rotation(180, 360)
+                .start();
     }
 
     private class Adapter extends ArrayAdapter<String> {

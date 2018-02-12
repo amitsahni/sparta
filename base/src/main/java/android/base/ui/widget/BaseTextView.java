@@ -3,8 +3,13 @@ package android.base.ui.widget;
 import android.base.R;
 import android.base.util.ApplicationUtils;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Html;
 import android.text.TextUtils;
@@ -67,6 +72,30 @@ public class BaseTextView extends AppCompatTextView {
             }
             if (a.getBoolean(R.styleable.BaseTextView_enableHtml, false)) {
                 setText(Html.fromHtml(getText().toString()));
+            }
+            int resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
+            if (resId != -1) {
+                ColorStateList tint = ContextCompat.getColorStateList(getContext(), resId);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    // Call some material design APIs here
+                    setCompoundDrawableTintList(tint);
+                } else {
+                    // Implement this feature without material design
+                    Drawable[] drawable = getCompoundDrawablesRelative();
+                    Drawable start = drawable[0];
+                    Drawable top = drawable[1];
+                    Drawable end = drawable[2];
+                    Drawable bottom = drawable[3];
+                    if (start != null)
+                        DrawableCompat.setTintList(start, tint);
+                    if (top != null)
+                        DrawableCompat.setTintList(top, tint);
+                    if (end != null)
+                        DrawableCompat.setTintList(end, tint);
+                    if (bottom != null)
+                        DrawableCompat.setTintList(bottom, tint);
+                    setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+                }
             }
             a.recycle();
         }

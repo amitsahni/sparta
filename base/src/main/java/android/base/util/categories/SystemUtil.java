@@ -1,5 +1,6 @@
 package android.base.util.categories;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Service;
@@ -18,7 +19,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
-import android.os.StatFs;
 import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -107,7 +107,7 @@ public class SystemUtil {
 
                 ConnectivityManager cm = (ConnectivityManager) context
                         .getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                @SuppressLint("MissingPermission") NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
                 if (activeNetwork != null) { // connected to the internet
                     if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
                         // connected to wifi
@@ -161,6 +161,7 @@ public class SystemUtil {
      * @param context  the context
      * @param duration duration of the vibration in miliseconds
      */
+    @SuppressLint("MissingPermission")
     public static void vibrate(Context context, int duration) {
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(duration);
@@ -503,29 +504,6 @@ public class SystemUtil {
         return ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
     }
 
-    /**
-     * Gets available internal data size.
-     *
-     * @return The available storage in MegaBytes
-     */
-    @SuppressWarnings("deprecation")
-    public static Long getAvailableInternalDataSize() {
-        StatFs stat = new StatFs(Environment.getDataDirectory().getPath());
-        long size = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
-        return size / FileUtil.BYTES_TO_MB;
-    }
-
-    /**
-     * Gets total internal data size.
-     *
-     * @return The total storage in MegaBytes
-     */
-    @SuppressWarnings("deprecation")
-    public static Long getTotalInternalDataSize() {
-        StatFs stat = new StatFs(Environment.getDataDirectory().getPath());
-        long size = (long) stat.getBlockCount() * (long) stat.getBlockSize();
-        return size / FileUtil.BYTES_TO_MB;
-    }
 
     /**
      * Checks if the application is installed on the SD card.
@@ -682,7 +660,7 @@ public class SystemUtil {
         Intent intent = new Intent(
                 android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         if (imagePath == null)
-            imagePath = ApplicationUtils.File.getStaticFile(context, "");
+            imagePath = FileUtil.createFile(context, "temp", "temp.jpg");
         Uri mUri = Uri.fromFile(imagePath);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
         intent.putExtra("return-data", true);

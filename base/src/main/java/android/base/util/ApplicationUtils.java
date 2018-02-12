@@ -7,7 +7,6 @@ import android.base.util.categories.FileUtil;
 import android.base.util.categories.LocationUtil;
 import android.base.util.categories.LogUtil;
 import android.base.util.categories.MathUtil;
-import android.base.util.categories.PrefUtil;
 import android.base.util.categories.SecurityUtil;
 import android.base.util.categories.SystemUtil;
 import android.base.util.categories.ValidatorUtil;
@@ -64,13 +63,6 @@ public final class ApplicationUtils {
     public static class Math extends MathUtil {
     }
 
-    /**
-     * The type Pref.
-     */
-    public static class Pref extends PrefUtil {
-
-
-    }
 
     /**
      * The type File util.

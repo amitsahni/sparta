@@ -35,8 +35,8 @@ ext.deps = [
         appcompat    : 'com.android.support:appcompat-v7:27.0.2',
         design      : 'com.android.support:design:27.0.2',
         support13   : 'com.android.support:support-v13:27.0.2',
-        commonsio    : 'commons-io:commons-io:2.4',
-        commonslang : 'org.apache.commons:commons-lang3:3.4',
-        guava       : 'com.google.guava:guava:20.0',
+        commonsio    : 'commons-io:commons-io:2.6',
+        commonslang : 'org.apache.commons:commons-lang3:3.7',
+        guava       : 'com.google.guava:guava:24.0-android',
         rtlviewpager: 'com.booking:rtlviewpager:1.0.1'
 ]

@@ -1,9 +1,9 @@
 package android.base.ui.widget;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.widget.Checkable;
-import android.widget.ImageView;
 
 /**
  * This is CustomCheckBox class used to show image. This class also used to
@@ -11,7 +11,7 @@ import android.widget.ImageView;
  *
  * @author amit.singh
  */
-public class BaseCheckableImageView extends ImageView implements Checkable {
+public class BaseCheckableImageView extends AppCompatImageView implements Checkable {
 
     /**
      * Instantiates a new Base checkable image mView.

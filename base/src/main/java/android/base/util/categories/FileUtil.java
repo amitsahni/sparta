@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.base.util.ApplicationUtils;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -12,40 +11,26 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.text.TextUtils;
+
+import com.google.common.io.Files;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
 
 import static android.os.Environment.MEDIA_MOUNTED;
 
-/**
- * The type File util.
- */
 public class FileUtil extends FileUtils {
-    /**
-     * The constant BYTES_TO_MB.
-     */
-// Amount of bytes on a megabyte
-    public static final int BYTES_TO_MB = 1048576;
-    private static final int BUFFER_SIZE = 16384;
+    private final static String TAG = FileUtil.class.getSimpleName();
 
-    /**
-     * protected constructor
-     */
     protected FileUtil() {
     }
 
-    /**
-     * Check if the SD Card is Available
-     *
-     * @return true if the sd card is available and false if it is not
-     */
     public static boolean isSDCardAvailable() {
         boolean mExternalStorageAvailable = false;
 
@@ -69,11 +54,6 @@ public class FileUtil extends FileUtils {
 
     }
 
-    /**
-     * Check if the SD Card is writable
-     *
-     * @return true if the sd card is writable and false if it is not
-     */
     public static boolean isSDCardWritable() {
 
         boolean mExternalStorageWriteable = false;
@@ -98,126 +78,46 @@ public class FileUtil extends FileUtils {
 
     }
 
-    /**
-     * Creates the specified <code>toFile</code> as a byte for byte copy of the
-     * <code>fromFile</code>. If <code>toFile</code> already exists, then it
-     * will be replaced with a copy of <code>fromFile</code>. The name and path
-     * of <code>toFile</code> will be that of <code>toFile</code>.<br/>
-     * <br/>
-     * <i> Note: <code>fromFile</code> and <code>toFile</code> will be closed by
-     * this function.</i>
-     *
-     * @param fromFile - FileInputStream for the file to copy from.
-     * @param toFile   - FileOutpubStream for the file to copy to.
-     * @throws IOException the io exception
-     */
-    public static void copyFile(FileInputStream fromFile, FileOutputStream toFile) throws IOException {
-        FileChannel fromChannel = null;
-        FileChannel toChannel = null;
+    public static void copyFile(FileInputStream fromFile, FileOutputStream toFile) {
         try {
-            fromChannel = fromFile.getChannel();
-            toChannel = toFile.getChannel();
-            fromChannel.transferTo(0, fromChannel.size(), toChannel);
-        } finally {
-            try {
-                if (fromChannel != null) {
-                    fromChannel.close();
-                }
-            } finally {
-                if (toChannel != null) {
-                    toChannel.close();
-                }
-            }
-        }
-    }
-
-    /**
-     * Creates the specified <code>toFile</code> as a byte for byte copy of the
-     * <code>fromFile</code>. If <code>toFile</code> already exists, then it
-     * will be replaced with a copy of <code>fromFile</code>. The name and path
-     * of <code>toFile</code> will be that of <code>toFile</code>.<br/>
-     * <br/>
-     * <i> Note: <code>fromFile</code> and <code>toFile</code> will be closed by
-     * this function.</i>
-     *
-     * @param fromFile - File to copy from.
-     * @param toFile   - File to copy to.
-     */
-    public static void copyFile(File fromFile, File toFile) {
-        try {
-            FileUtils.copyFile(fromFile, toFile);
+            IOUtils.copy(fromFile, toFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * Get the SDCard Path
-     *
-     * @return the complete path to the SDCard
-     */
-    public static String getSDCardPath() {
-        return Environment.getExternalStorageDirectory().toString() + "/";
+    public static void copyFile(File fromFile, File toFile) {
+        try {
+            Files.copy(fromFile, toFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Get the SDCard Path as a File
-     *
-     * @return the complete path to the SDCard
-     */
-    public static File getSDCardPathFile() {
-        return Environment.getExternalStorageDirectory();
-    }
-
-    /**
-     * Check if file exists on SDCard or not
-     *
-     * @param filePath - its the path of the file after SDCardDirectory (no need for                 getExternalStorageDirectory())
-     * @return boolean - if file exist on SDCard or not
-     */
-    public static boolean checkIfFileExists(String filePath) {
-        File file = new File(filePath);// getSDCardPath(), filePath);
-        return file.exists();
-    }
-
-    /**
-     * Create folder in the SDCard
-     *
-     * @param path the path
-     * @return boolean
-     */
-    public static boolean createFolder(String path) {
-        File direct = new File(Environment.getExternalStorageDirectory() + "/" + path);
-
+    public static File createFolder(Context context, String path) {
+        File direct = new File(getDirectoryApp(context), path);
         if (!direct.exists()) {
             if (direct.mkdir()) {
-                return true;
+                return direct;
             }
-
         }
-        return false;
+        return direct;
     }
 
+    public static File createFile(Context context, String path, String name) {
+        return new File(createFolder(context, path), name);
+    }
 
-    private final static String FILE_NAME = "Sparta_";
-    private final static String FILE_NAME_IMAGE = "IMG_";
-    private final static String FILE_NAME_VIDEO = "VID_";
-    private final static String FILE_NAME_CAMERA_IMAGE = "IMG_CAMERA_";
-
-
-    private final static String TAG = FileUtils.class.getSimpleName();
 
     /**
      * Functionality to get directory name file
      *
-     * @param context the context
      * @return directory file where the all the application's files are stored
      */
     public static File getDirectoryApp(Context context) {
         String cacheFilePath = Environment.getExternalStorageDirectory() + "/Android/data/" + context.getPackageName();
         File appCacheDir = null;
-        if (MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
-                && hasExternalStoragePermission(context)) {
+        if (MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             appCacheDir = new File(cacheFilePath);
         }
         if (appCacheDir == null
@@ -230,94 +130,23 @@ public class FileUtil extends FileUtils {
         return appCacheDir;
     }
 
-    /**
-     * Functionality to get directory of images cache file
-     *
-     * @param context the context
-     * @return directory file where the all the application's images are stored
-     */
-    public static File getDirectoryAppCacheImages(Context context) {
-        File dir = new File(getDirectoryApp(context),
-                "/CacheImages");
-        if (!dir.exists() && !dir.mkdirs()) {
-            dir = context.getCacheDir();
-        }
-        ApplicationUtils.Log.d("image directory path = "
-                + dir);
 
-        return dir;
+    public static File getImages(Context context) {
+        return createFolder(context, "images");
     }
 
-    /**
-     * Functionality to get directory of images file
-     *
-     * @param context the context
-     * @return directory file where the all the application's images are stored
-     */
-    public static File getDirectoryAppImages(Context context) {
-        File dir = new File(getDirectoryApp(context),
-                "/Images");
-        if (!dir.exists() && !dir.mkdirs()) {
-            dir = context.getCacheDir();
-        }
-        ApplicationUtils.Log.d("image directory path = "
-                + dir);
-
-        return dir;
+    public static File getVideos(Context context) {
+        return createFolder(context, "videos");
     }
 
-    /**
-     * Functionality to get directory of images file
-     *
-     * @param context the context
-     * @return directory file where the all the application's images are stored
-     */
-    public static File getDirectoryAppTemp(Context context) {
-        File dir = new File(getDirectoryApp(context),
-                "/Temp");
-        if (!dir.exists() && !dir.mkdirs()) {
-            dir = context.getCacheDir();
-        }
-        ApplicationUtils.Log.d("image directory path = "
-                + dir);
-
-        return dir;
+    public static File createImageFile(Context context, String name) {
+        return createFile(context, getImages(context).getPath(), name);
     }
 
-    /**
-     * Functionality to get directory of images file
-     *
-     * @param context the context
-     * @return directory file where the all the application's images are stored
-     */
-    public static File getDirectoryAppVideos(Context context) {
-        File dir = new File(getDirectoryApp(context),
-                "/Videos");
-        if (!dir.exists() && !dir.mkdirs()) {
-            dir = context.getCacheDir();
-        }
-        ApplicationUtils.Log.d("video directory path = "
-                + dir);
-
-        return dir;
+    public static File createVideoFile(Context context, String name) {
+        return createFile(context, getVideos(context).getPath(), name);
     }
 
-
-    /**
-     * Gets static file.
-     *
-     * @param context the context
-     * @param name    the name
-     * @return the static file
-     */
-    public static File getStaticFile(Context context, String name) {
-        if (TextUtils.isEmpty(name)) {
-            name = "temp.jpg";
-        }
-        File dir = new File(getDirectoryAppTemp(context), name);
-        return dir;
-
-    }
 
     /**
      * Write string to file.
@@ -327,7 +156,7 @@ public class FileUtil extends FileUtils {
      */
     public static void writeStringToFile(File file, String data) {
         try {
-            org.apache.commons.io.FileUtils.writeStringToFile(file, data);
+            writeStringToFile(file, data, Charset.defaultCharset());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -342,16 +171,10 @@ public class FileUtil extends FileUtils {
      */
     public static void writeStringToFile(File file, String data, boolean append) {
         try {
-            org.apache.commons.io.FileUtils.writeStringToFile(file, data, append);
+            org.apache.commons.io.FileUtils.writeStringToFile(file, data, Charset.defaultCharset(), append);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private static boolean hasExternalStoragePermission(Context context) {
-        int perm = context
-                .checkCallingOrSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE");
-        return perm == PackageManager.PERMISSION_GRANTED;
     }
 
     /**
