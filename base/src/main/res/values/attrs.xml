@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="progressColor" format="color" />
 
     <declare-styleable name="BaseTextView">
         <attr name="customTypeface" format="string" />
@@ -24,7 +25,7 @@
     </declare-styleable>
     <declare-styleable name="BaseSwipeRefreshLayout">
         <attr name="progressBackgroundColor" format="color" />
-        <attr name="progressColor" format="color" />
+        <attr name="progressColor" />
     </declare-styleable>
 
     <declare-styleable name="FloatingSpinner">
@@ -34,5 +35,21 @@
         <attr name="labelTextColor" format="color" />
         <!-- Sets the array to be displayed on the Spinner -->
         <attr name="spinnerEntries" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressView">
+        <attr name="mode" format="enum">
+            <enum name="line" value="1" />
+            <enum name="arc" value="2" />
+            <enum name="semi" value="3" />
+            <enum name="circle" value="4" />
+        </attr>
+        <attr name="startAngle" format="float" />
+        <attr name="endAngle" format="float" />
+        <attr name="strokeSize" format="float" />
+        <attr name="radius" format="float" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="progressColor" />
+        <attr name="secondaryColor" format="color" />
     </declare-styleable>
 </resources>

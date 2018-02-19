@@ -1,7 +1,6 @@
 package spartan.com.basemodule;
 
 import android.base.ui.custom.FloatingSpinner;
-import android.base.util.categories.AnimationUtil;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -21,15 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FloatingSpinner spinner = (FloatingSpinner) findViewById(R.id.floatingSpinner);
-//        Adapter adapter = new Adapter(this, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setCustomAdapter(adapter);
         View view = findViewById(android.R.id.text1);
-//        AnimationUtil.hide(view);
         ViewAnimator
                 .animate(view)
                 .duration(5000)
-                .alpha(0.5f,0.9f)
+                .alpha(0.5f, 0.9f)
                 .fadeIn()
                 .thenAnimate(spinner)
                 .tada()
