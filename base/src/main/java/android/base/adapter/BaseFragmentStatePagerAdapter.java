@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
@@ -21,43 +22,22 @@ public abstract class BaseFragmentStatePagerAdapter extends FragmentStatePagerAd
     private int mCount;
     private Map<Integer, Fragment> mCurrentFragmentList = new LinkedHashMap<>();
 
-    /**
-     * Instantiates a new Base fragment state pager adapter.
-     *
-     * @param fm      the fm
-     * @param context the mContext
-     */
     public BaseFragmentStatePagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.mContext = context;
         mCount = mList.size();
     }
 
-    /**
-     * Sets mList.
-     *
-     * @param items the items
-     */
     public void setList(@NonNull List<FragmentPagerModel> items) {
         mList = new ArrayList<>(items);
         mCount = mList.size();
         this.notifyDataSetChanged();
     }
 
-    /**
-     * Gets mList.
-     *
-     * @return ListArray<FragmentPagerModel> mList
-     */
     public List<FragmentPagerModel> getList() {
         return mList;
     }
 
-    /**
-     * Gets mContext.
-     *
-     * @return the mContext
-     */
     public Context getContext() {
         return mContext;
     }
@@ -90,6 +70,7 @@ public abstract class BaseFragmentStatePagerAdapter extends FragmentStatePagerAd
         super.destroyItem(container, position, object);
     }
 
+    @Nullable
     public Fragment getFragment(int position) {
         if (mCurrentFragmentList.isEmpty())
             return null;

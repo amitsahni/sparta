@@ -1,8 +1,6 @@
 package android.base.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
@@ -34,27 +32,11 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public abstract class BaseArrayAdapter<T> extends ArrayAdapter {
     private List<T> mList = new ArrayList<>();
-    private Activity mActivity;
     private Context mContext;
 
-    /**
-     * Instantiates a new Base array adapter.
-     *
-     * @param context the mContext
-     */
     public BaseArrayAdapter(Context context) {
         super(context, android.R.layout.simple_list_item_1);
         this.mContext = context;
-    }
-
-    /**
-     * Instantiates a new Base array adapter.
-     *
-     * @param context the mContext
-     */
-    public BaseArrayAdapter(Activity context) {
-        super(context, android.R.layout.simple_list_item_1);
-        this.mActivity = context;
     }
 
     /**
@@ -97,13 +79,19 @@ public abstract class BaseArrayAdapter<T> extends ArrayAdapter {
         return mContext;
     }
 
-    /**
-     * Gets activity mContext.
-     *
-     * @return the activity mContext
-     */
-    @Nullable
-    public Activity getActivityContext() {
-        return mActivity;
+    public void removeItem(int pos) {
+        this.mList.remove(pos);
+        notifyDataSetChanged();
     }
+
+    public void addItem(int pos, T item) {
+        this.mList.add(pos, item);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(T item) {
+        this.mList.add(item);
+        notifyDataSetChanged();
+    }
+
 }
