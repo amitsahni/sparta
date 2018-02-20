@@ -4,12 +4,12 @@ import android.app.Dialog;
 import android.base.R;
 import android.base.ui.widget.BaseProgressBar;
 import android.base.ui.widget.BaseTextView;
-import android.base.util.ApplicationUtils;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,7 +75,7 @@ public class ProgressViewApplication extends RelativeLayout {
                 progressBar.setIndeterminateTint(tint);
             // ProgressText
             String progressText = ta.getString(R.styleable.ProgressViewApplication_android_text);
-            if (!ApplicationUtils.Validator.isEmptyOrNull(progressText)) {
+            if (!TextUtils.isEmpty(progressText)) {
                 textView.setVisibility(VISIBLE);
                 textView.setText(progressText);
             } else {
@@ -148,7 +148,7 @@ public class ProgressViewApplication extends RelativeLayout {
      * @param text the text
      */
     public void setProgressText(String text) {
-        if (!ApplicationUtils.Validator.isEmptyOrNull(text)) {
+        if (!TextUtils.isEmpty(text)) {
             getTextView().setVisibility(VISIBLE);
             getTextView().setText(text);
         }

@@ -1,13 +1,13 @@
 package android.base.ui.widget;
 
 import android.base.R;
-import android.base.util.ApplicationUtils;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatTextView;
@@ -15,6 +15,8 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
+
+import java.util.Locale;
 
 
 /**
@@ -60,7 +62,7 @@ public class BaseTextView extends AppCompatTextView {
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs,
                     R.styleable.BaseTextView);
-            String typeface = ApplicationUtils.System.getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
+            String typeface = getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
             if (!TextUtils.isEmpty(typeface)) {
                 Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
                         typeface);
@@ -68,7 +70,7 @@ public class BaseTextView extends AppCompatTextView {
             }
             boolean textAllCaps = a.getBoolean(R.styleable.BaseTextView_android_textAllCaps, false);
             if (textAllCaps) {
-                setText(ApplicationUtils.Validator.upperCase(getText().toString()));
+                setText(getText().toString().toUpperCase(Locale.getDefault()));
             }
             if (a.getBoolean(R.styleable.BaseTextView_enableHtml, false)) {
                 setText(Html.fromHtml(getText().toString()));
@@ -99,6 +101,12 @@ public class BaseTextView extends AppCompatTextView {
             }
             a.recycle();
         }
+    }
+
+    private String getFontName(Context context, @StringRes int resId) {
+        if (resId != -1)
+            return context.getString(resId);
+        return "";
     }
 
     /**

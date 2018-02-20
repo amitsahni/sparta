@@ -1,13 +1,15 @@
 package android.base.ui.widget;
 
 import android.base.R;
-import android.base.util.ApplicationUtils;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.support.annotation.StringRes;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import java.util.Locale;
 
 /**
  * Created by Sahni on 24-11-2015.
@@ -50,7 +52,7 @@ public class BaseCheckBox extends AppCompatCheckBox {
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs,
                     R.styleable.BaseTextView);
-            String typeface = ApplicationUtils.System.getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
+            String typeface = getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
             if (!TextUtils.isEmpty(typeface)) {
                 Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
                         typeface);
@@ -58,9 +60,15 @@ public class BaseCheckBox extends AppCompatCheckBox {
             }
             boolean textAllCaps = a.getBoolean(R.styleable.BaseTextView_android_textAllCaps, false);
             if (textAllCaps) {
-                setText(ApplicationUtils.Validator.upperCase(getText().toString()));
+                setText(getText().toString().toUpperCase(Locale.getDefault()));
             }
             a.recycle();
         }
+    }
+
+    private String getFontName(Context context, @StringRes int resId) {
+        if (resId != -1)
+            return context.getString(resId);
+        return "";
     }
 }
