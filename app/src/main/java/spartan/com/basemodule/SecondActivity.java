@@ -1,27 +1,24 @@
 package spartan.com.basemodule;
 
-import android.app.ActivityOptions;
 import android.base.ui.custom.FloatingSpinner;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Slide;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.github.florent37.viewanimator.ViewAnimator;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
         FloatingSpinner spinner = (FloatingSpinner) findViewById(R.id.floatingSpinner);
         View view = findViewById(android.R.id.text1);
         ViewAnimator
@@ -33,21 +30,6 @@ public class MainActivity extends AppCompatActivity {
                 .tada()
                 .rotation(180, 360)
                 .start();
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,
-                        SecondActivity.class);
-
-                ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
-                        MainActivity.this);
-
-                startActivity(i, transitionActivityOptions.toBundle());
-            }
-        });
-        Slide slide = new Slide();
-        slide.addTarget(R.id.fab);
-        getWindow().setExitTransition(slide);
     }
 
     private class Adapter extends ArrayAdapter<String> {

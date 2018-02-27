@@ -26,14 +26,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    /* Support Lib v7,Material,V13 */
     compile deps.appcompat
     compile deps.design
     compile deps.support13
-    /*  IO Lib */
-   // compile deps.commonsio
-    //compile deps.commonslang
-    //compile deps.guava
     compile deps.rtlviewpager
 
 }
