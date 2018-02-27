@@ -13,7 +13,7 @@
         android:label="Tests for spartan.com.basemodule"
         android:targetPackage="spartan.com.basemodule" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

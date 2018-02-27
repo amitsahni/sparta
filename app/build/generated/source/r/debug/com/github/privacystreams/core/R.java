@@ -8,23 +8,23 @@ package com.github.privacystreams.core;
 
 public final class R {
     public static final class bool {
-        public static final int accessibility_enabled = 0x7f0c0005;
-        public static final int notification_enabled = 0x7f0c0006;
+        public static final int accessibility_enabled = 0x7f050005;
+        public static final int notification_enabled = 0x7f050006;
     }
     public static final class color {
-        public static final int colorAccent = 0x7f0e0016;
-        public static final int colorPrimary = 0x7f0e0018;
-        public static final int colorPrimaryDark = 0x7f0e0019;
+        public static final int colorAccent = 0x7f060028;
+        public static final int colorPrimary = 0x7f06002a;
+        public static final int colorPrimaryDark = 0x7f06002b;
     }
     public static final class dimen {
-        public static final int activity_horizontal_margin = 0x7f0a001d;
-        public static final int activity_vertical_margin = 0x7f0a0057;
+        public static final int activity_horizontal_margin = 0x7f07004a;
+        public static final int activity_vertical_margin = 0x7f07004b;
     }
     public static final class string {
-        public static final int accessibility_service_description = 0x7f09003d;
+        public static final int accessibility_service_description = 0x7f0d001d;
     }
     public static final class xml {
-        public static final int accessibility_config = 0x7f080000;
-        public static final int ps_file_provider = 0x7f080001;
+        public static final int accessibility_config = 0x7f100000;
+        public static final int ps_file_provider = 0x7f100001;
     }
 }
