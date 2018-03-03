@@ -1,16 +1,12 @@
 apply plugin: 'com.android.library'
 
-def compileSdk = project.ext.ANDROID_BUILD_COMPILE_SDK_VERSION
-def buildTools = project.ext.ANDROID_BUILD_TOOLS_VERSION
-def minSdk = project.ext.ANDROID_BUILD_MIN_SDK_VERSION
-
 android {
-    compileSdkVersion compileSdk
-    buildToolsVersion buildTools
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
-        minSdkVersion minSdk
-        targetSdkVersion minSdk
+        minSdkVersion 17
+        targetSdkVersion 25
     }
     buildTypes {
         debug {
@@ -26,9 +22,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile deps.appcompat
+    implementation deps.appcompat
     compile deps.design
-    compile deps.support13
-    compile deps.rtlviewpager
+    implementation deps.support13
+    implementation deps.rtlviewpager
 
 }

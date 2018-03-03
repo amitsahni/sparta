@@ -1,32 +1,18 @@
 apply plugin: 'com.android.application'
-def compileSdk = project.ext.ANDROID_BUILD_COMPILE_SDK_VERSION
-def buildTools = project.ext.ANDROID_BUILD_TOOLS_VERSION
-def minSdk = project.ext.ANDROID_BUILD_MIN_SDK_VERSION
 android {
-    configurations {
-        all*.exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
-    }
-    compileSdkVersion compileSdk
-    buildToolsVersion buildTools
+
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
     defaultConfig {
         applicationId "spartan.com.basemodule"
-        minSdkVersion minSdk
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
     }
     buildTypes {
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -58,10 +44,9 @@ android {
 }
 
 dependencies {
-    compile project(':base')
+    implementation project(':base')
     // Util
-    compile 'com.github.privacystreams:privacystreams-core:0.1.4'
-//    compile 'com.github.amitclickapps:pubnub-util:master-SNAPSHOT'
+    implementation deps.privacy
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
-    compile 'com.github.florent37:viewanimator:1.0.5'
+    implementation 'com.github.florent37:viewanimator:1.0.5'
 }
