@@ -4,17 +4,24 @@ import android.app.ActivityOptions;
 import android.base.ui.custom.FloatingSpinner;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.github.florent37.viewanimator.ViewAnimator;
+
+import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
+import br.com.simplepass.loading_button_lib.interfaces.OnAnimationEndListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (getApplication() instanceof AppApplication) {
+            ((AppApplication) getApplication()).runJobService();
+        }
         FloatingSpinner spinner = (FloatingSpinner) findViewById(R.id.floatingSpinner);
         View view = findViewById(android.R.id.text1);
         ViewAnimator
@@ -48,6 +58,28 @@ public class MainActivity extends AppCompatActivity {
         Slide slide = new Slide();
         slide.addTarget(R.id.fab);
         getWindow().setExitTransition(slide);
+        final CircularProgressButton pb = findViewById(R.id.btn_id);
+        pb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pb.startAnimation();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pb.stopAnimation();
+                        pb.revertAnimation(new OnAnimationEndListener() {
+                            @Override
+                            public void onAnimationEnd() {
+                                pb.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.btn_shape));
+                            }
+                        });
+                    }
+                }, 1000);
+
+            }
+        });
+        pb.setSpinningBarColor(Color.BLUE);
+
     }
 
     private class Adapter extends ArrayAdapter<String> {
@@ -66,5 +98,11 @@ public class MainActivity extends AppCompatActivity {
         public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             return super.getDropDownView(position, convertView, parent);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(getLocalClassName(), "onDestroy");
     }
 }

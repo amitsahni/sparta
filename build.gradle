@@ -6,7 +6,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -25,14 +25,8 @@ task clean(type: Delete) {
 }
 ext.deps = [
         // Base
-        appcompat   : 'com.android.support:appcompat-v7:27.0.2',
-        design      : 'com.android.support:design:27.0.2',
-        support13   : 'com.android.support:support-v13:27.0.2',
+        appcompat   : 'com.android.support:appcompat-v7:27.1.1',
+        design      : 'com.android.support:design:27.1.1',
+        support13   : 'com.android.support:support-v13:27.1.1',
         rtlviewpager: 'com.booking:rtlviewpager:1.0.1',
-        // app
-        commonsio   : 'commons-io:commons-io:2.6',
-        commonslang : 'org.apache.commons:commons-lang3:3.7',
-        guava       : 'com.google.guava:guava:24.0-android',
-        privacy     : 'com.github.privacystreams:privacystreams-core:0.1.4'
-
 ]

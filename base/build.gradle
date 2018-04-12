@@ -26,5 +26,4 @@ dependencies {
     compile deps.design
     implementation deps.support13
     implementation deps.rtlviewpager
-
 }

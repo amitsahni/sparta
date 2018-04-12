@@ -22,7 +22,7 @@
         android:drawableStart="@drawable/ic_loading"
         android:text="Hello World!"
         android:textColor="@color/black"
-        android:tint="@color/colorAccent" />
+        />
 
     <android.base.ui.custom.FloatingSpinner
         android:id="@+id/floatingSpinner"
@@ -54,5 +54,17 @@
         android:src="@android:drawable/ic_delete"
         android:transitionName="fab"
         app:fabSize="mini" />
+
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+        android:id="@+id/btn_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_shape"
+        android:elevation="5dp"
+        android:src="@drawable/ic_done_white_48dp"
+        android:text="lk"
+        app:finalCornerAngle="30dp"
+        app:initialCornerAngle="30dp" />
 
 </LinearLayout>

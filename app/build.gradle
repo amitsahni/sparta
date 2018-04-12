@@ -46,7 +46,8 @@ android {
 dependencies {
     implementation project(':base')
     // Util
-    implementation deps.privacy
+    implementation 'com.github.privacystreams:privacystreams-core:0.1.4'
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     implementation 'com.github.florent37:viewanimator:1.0.5'
+    compile 'br.com.simplepass:loading-button-android:1.12.1'
 }

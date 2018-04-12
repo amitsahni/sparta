@@ -75,7 +75,7 @@ public class BaseEditText extends AppCompatEditText implements Checkable {
             int resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
             if (resId != -1) {
                 ColorStateList tint = ContextCompat.getColorStateList(getContext(), resId);
-                if (Build.VERSION.SDK_INT >= 21) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     // Call some material design APIs here
                     setCompoundDrawableTintList(tint);
                 } else {
