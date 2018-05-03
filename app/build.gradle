@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "spartan.com.basemodule"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -21,33 +21,30 @@ android {
 
     // Have to copy paste in app module
     packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'libs/jackson-core-2.7.3.jar'
-        exclude 'libs/jackson-annotations-2.7.3.jar'
-        exclude 'libs/jackson-databind-2.7.2.jar'
-        exclude 'META-INF/ASL2.0'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/NOTICE.txt'
+//        exclude 'libs/jackson-core-2.7.3.jar'
+//        exclude 'libs/jackson-annotations-2.7.3.jar'
+//        exclude 'libs/jackson-databind-2.7.2.jar'
+//        exclude 'META-INF/ASL2.0'
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/NOTICE'
     }
     // Have to copy paste in app module
     dexOptions {
-        preDexLibraries = false
-        jumboMode = false
-        javaMaxHeapSize "4g"
-    }
-    allprojects {
-        repositories {
-            maven { url "https://jitpack.io" }
-        }
+//        preDexLibraries = false
+//        jumboMode = false
+//        javaMaxHeapSize "4g"
     }
 }
 
 dependencies {
     implementation project(':base')
+    implementation deps.appcompat
+    implementation deps.design
     // Util
     implementation 'com.github.privacystreams:privacystreams-core:0.1.4'
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     implementation 'com.github.florent37:viewanimator:1.0.5'
-    compile 'br.com.simplepass:loading-button-android:1.12.1'
+    implementation 'br.com.simplepass:loading-button-android:1.12.1'
 }

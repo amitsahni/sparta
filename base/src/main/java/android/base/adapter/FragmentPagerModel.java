@@ -1,6 +1,7 @@
 package android.base.adapter;
 
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 
 /**
  * Created by amit on 28/12/16.

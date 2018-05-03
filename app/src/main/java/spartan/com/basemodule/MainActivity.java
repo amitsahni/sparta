@@ -24,6 +24,7 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import br.com.simplepass.loading_button_lib.interfaces.OnAnimationEndListener;
 
 public class MainActivity extends AppCompatActivity {
+    View v;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
             ((AppApplication) getApplication()).runJobService();
         }
         FloatingSpinner spinner = (FloatingSpinner) findViewById(R.id.floatingSpinner);
-        View view = findViewById(android.R.id.text1);
+        v = findViewById(R.id.text1);
         ViewAnimator
-                .animate(view)
+                .animate(spinner)
                 .duration(5000)
                 .alpha(0.5f, 0.9f)
                 .fadeIn()
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,
                         SecondActivity.class);
-
                 ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
-                        MainActivity.this);
+                        MainActivity.this, v, v.getTransitionName());
+//                ActivityOptions transitionActivityOptions = ActivityOptions.makeBasic();
 
                 startActivity(i, transitionActivityOptions.toBundle());
             }
