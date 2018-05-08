@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.github.florent37.viewanimator.ViewAnimator;
 
@@ -24,7 +25,7 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import br.com.simplepass.loading_button_lib.interfaces.OnAnimationEndListener;
 
 public class MainActivity extends AppCompatActivity {
-    View v;
+    TextView v;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,
                         SecondActivity.class);
+                i.putExtra("textSize",v.getTextSize());
                 ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
                         MainActivity.this, v, v.getTransitionName());
 //                ActivityOptions transitionActivityOptions = ActivityOptions.makeBasic();

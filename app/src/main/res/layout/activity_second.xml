@@ -46,5 +46,5 @@
         android:text="Hello World!"
         android:textColor="@color/black"
         android:textSize="50sp"
-        android:transitionName="textx" />
+        android:transitionName="text" />
 </LinearLayout>
