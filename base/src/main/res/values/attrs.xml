@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="progressColor" format="color" />
 
     <declare-styleable name="BaseTextView">
-        <attr name="typefaces" format="enum">
-            <enum name="proximanova" value="0" />
-            <enum name="roboticRegular" value="1" />
-            <enum name="roboticThin" value="2" />
-            <enum name="roboticLight" value="3" />
-        </attr>
         <attr name="customTypeface" format="string" />
         <attr name="android:maxLines" />
         <attr name="android:tint" />
         <attr name="android:textAllCaps" />
         <attr name="enableHtml" format="boolean" />
-        <attr name="letterSpacing" format="float" />
     </declare-styleable>
 
 
@@ -30,7 +24,32 @@
         <attr name="android:tint" />
     </declare-styleable>
     <declare-styleable name="BaseSwipeRefreshLayout">
-        <attr name="progressBackgroundColor" format="color"/>
-        <attr name="progressColor" format="color" />
+        <attr name="progressBackgroundColor" format="color" />
+        <attr name="progressColor" />
+    </declare-styleable>
+
+    <declare-styleable name="FloatingSpinner">
+        <!-- The text that is displayed on the floating label -->
+        <attr name="labelText" format="string" />
+        <!-- Specifies the color of the label and the bottom line -->
+        <attr name="labelTextColor" format="color" />
+        <!-- Sets the array to be displayed on the Spinner -->
+        <attr name="spinnerEntries" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressView">
+        <attr name="mode" format="enum">
+            <enum name="line" value="1" />
+            <enum name="arc" value="2" />
+            <enum name="semi" value="3" />
+            <enum name="circle" value="4" />
+        </attr>
+        <attr name="startAngle" format="float" />
+        <attr name="endAngle" format="float" />
+        <attr name="strokeSize" format="float" />
+        <attr name="radius" format="float" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="progressColor" />
+        <attr name="secondaryColor" format="color" />
     </declare-styleable>
 </resources>

@@ -1,7 +1,6 @@
 package android.base.ui.widget;
 
 import android.base.R;
-import android.base.util.ApplicationUtils;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;

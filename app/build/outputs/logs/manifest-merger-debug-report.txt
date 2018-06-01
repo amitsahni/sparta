@@ -1,0 +1,249 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+MERGED from [:base] /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/base/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-10:12
+MERGED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:2:1-64:12
+MERGED from [com.github.florent37:viewanimator:1.0.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/viewanimator-1.0.5.aar/6981980cc323595e7e5850fb898e45cc/AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:multidex:1.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/d333d26de0546352d2a273e4f676eec5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:17:1-42:12
+MERGED from [com.android.support:design:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/0ec1925a34211065fa6acce0de9c9c6b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/73e4502246ae1b199aa6b372dda3678d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v13:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-v13-27.0.2.aar/05a5e1b8596ceb329d97cc1cd8b09e16/AndroidManifest.xml:17:1-22:12
+MERGED from [com.booking:rtlviewpager:1.0.1] /home/clickapps/.gradle/caches/transforms-1/files-1.1/rtlviewpager-1.0.1.aar/78f9a456b658b1601f1fb6556923bc4e/AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:support-v4:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/dc4f13b70f6b1c9a6fd224ca7903c9ef/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/ff49d775744b930f6da9bada30a17f2c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/503894606d3df23ddb5ae3d089b899c9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/f9dea620833c21cf00156dfffb65718a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/8007d26dbcfadf2c7ddd83cf3e0fabb2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b53fabd0db4790766173ae9fb924529d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/8b08bb7a8b9801af47fb683096a6872a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/79c45a70268a9b34c982719337b0043e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/d4654620c958db7f870636e465f373ea/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/0c9aadce275c5fe0b4e9b8e21acd3036/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/clickapps/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/cb9583766cf4c948205b6db3a12b5be8/AndroidManifest.xml:17:1-24:12
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+	package
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:1-30:12
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:5:5-28:19
+MERGED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:11:5-62:19
+MERGED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:11:5-62:19
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:26:5-40:19
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:26:5-40:19
+	android:supportsRtl
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:9:9-41
+	android:roundIcon
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:10:9-54
+	android:icon
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:12:9-46
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:6:9-39
+activity#spartan.com.basemodule.MainActivity
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:13:9-18:20
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:13:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:14:13-17:29
+action#android.intent.action.MAIN
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:16:27-74
+activity#spartan.com.basemodule.SecondActivity
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:19:9-52
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:19:19-49
+service#spartan.com.basemodule.ServiceWithoutO
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:21:9-27:19
+	android:exported
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:23:13-37
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:22:13-44
+intent-filter#com.firebase.jobdispatcher.ACTION_EXECUTE
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:24:13-26:29
+action#com.firebase.jobdispatcher.ACTION_EXECUTE
+ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:25:17-84
+	android:name
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml:25:25-81
+uses-sdk
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+MERGED from [:base] /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/base/build/intermediates/manifests/full/debug/AndroidManifest.xml:6:5-8:41
+MERGED from [:base] /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/base/build/intermediates/manifests/full/debug/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.florent37:viewanimator:1.0.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/viewanimator-1.0.5.aar/6981980cc323595e7e5850fb898e45cc/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.florent37:viewanimator:1.0.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/viewanimator-1.0.5.aar/6981980cc323595e7e5850fb898e45cc/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:multidex:1.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/d333d26de0546352d2a273e4f676eec5/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/d333d26de0546352d2a273e4f676eec5/AndroidManifest.xml:20:5-43
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:22:5-24:41
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:design:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/0ec1925a34211065fa6acce0de9c9c6b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/0ec1925a34211065fa6acce0de9c9c6b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/73e4502246ae1b199aa6b372dda3678d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/73e4502246ae1b199aa6b372dda3678d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-v13-27.0.2.aar/05a5e1b8596ceb329d97cc1cd8b09e16/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-v13-27.0.2.aar/05a5e1b8596ceb329d97cc1cd8b09e16/AndroidManifest.xml:20:5-44
+MERGED from [com.booking:rtlviewpager:1.0.1] /home/clickapps/.gradle/caches/transforms-1/files-1.1/rtlviewpager-1.0.1.aar/78f9a456b658b1601f1fb6556923bc4e/AndroidManifest.xml:8:5-10:41
+MERGED from [com.booking:rtlviewpager:1.0.1] /home/clickapps/.gradle/caches/transforms-1/files-1.1/rtlviewpager-1.0.1.aar/78f9a456b658b1601f1fb6556923bc4e/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:support-v4:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/dc4f13b70f6b1c9a6fd224ca7903c9ef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/dc4f13b70f6b1c9a6fd224ca7903c9ef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/ff49d775744b930f6da9bada30a17f2c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/ff49d775744b930f6da9bada30a17f2c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/503894606d3df23ddb5ae3d089b899c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/503894606d3df23ddb5ae3d089b899c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/f9dea620833c21cf00156dfffb65718a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/f9dea620833c21cf00156dfffb65718a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/8007d26dbcfadf2c7ddd83cf3e0fabb2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/8007d26dbcfadf2c7ddd83cf3e0fabb2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b53fabd0db4790766173ae9fb924529d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b53fabd0db4790766173ae9fb924529d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/8b08bb7a8b9801af47fb683096a6872a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/8b08bb7a8b9801af47fb683096a6872a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/79c45a70268a9b34c982719337b0043e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/79c45a70268a9b34c982719337b0043e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/d4654620c958db7f870636e465f373ea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/d4654620c958db7f870636e465f373ea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/0c9aadce275c5fe0b4e9b8e21acd3036/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /home/clickapps/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/0c9aadce275c5fe0b4e9b8e21acd3036/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/clickapps/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/cb9583766cf4c948205b6db3a12b5be8/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/clickapps/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/cb9583766cf4c948205b6db3a12b5be8/AndroidManifest.xml:20:5-22:41
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		ADDED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+		INJECTED from /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/src/main/AndroidManifest.xml
+activity#com.github.privacystreams.utils.PSPermissionActivity
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:12:9-17:75
+	android:launchMode
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:16:13-43
+	android:exported
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:15:13-36
+	android:configChanges
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:14:13-74
+	android:theme
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:17:13-72
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:13:13-80
+activity#com.github.privacystreams.communication.GmailAuthorizationActivity
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:18:9-22:75
+	android:exported
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:21:13-36
+	android:configChanges
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:20:13-74
+	android:theme
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:22:13-72
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:19:13-94
+activity#com.github.privacystreams.image.PSCameraActivity
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:23:9-27:75
+	android:exported
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:26:13-36
+	android:configChanges
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:25:13-74
+	android:theme
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:24:13-76
+service#com.github.privacystreams.accessibility.PSAccessibilityService
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:29:9-43:19
+	android:enabled
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:31:13-58
+	android:exported
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:32:13-36
+	android:permission
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:33:13-79
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:30:13-90
+intent-filter#android.accessibilityservice.AccessibilityService+android.accessibilityservice.category.FEEDBACK_GENERIC
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:34:13-38:29
+action#android.accessibilityservice.AccessibilityService
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:35:17-92
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:35:25-89
+category#android.accessibilityservice.category.FEEDBACK_GENERIC
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:37:17-99
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:37:27-96
+meta-data#android.accessibilityservice
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:40:13-42:64
+	android:resource
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:42:17-61
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:41:17-60
+service#com.github.privacystreams.notification.PSNotificationListenerService
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:44:9-51:19
+	android:enabled
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:46:13-57
+	android:permission
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:47:13-87
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:45:13-96
+intent-filter#android.service.notification.NotificationListenerService
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:48:13-50:29
+action#android.service.notification.NotificationListenerService
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:49:17-99
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:49:25-96
+provider#com.github.privacystreams.utils.PSFileProvider
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:53:9-61:20
+	android:grantUriPermissions
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:57:13-47
+	android:authorities
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:55:13-60
+	android:exported
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:56:13-37
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:54:13-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:58:13-60:60
+	android:resource
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:60:17-57
+	android:name
+		ADDED from [com.github.privacystreams:privacystreams-core:0.1.4] /home/clickapps/.gradle/caches/transforms-1/files-1.1/privacystreams-core-0.1.4.aar/3828187cafd8ddd800d6e79f822e8b2d/AndroidManifest.xml:59:17-67
+service#com.firebase.jobdispatcher.GooglePlayReceiver
+ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:32:9-39:19
+	android:exported
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:34:13-36
+	android:permission
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:35:13-93
+	android:name
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:33:13-73
+intent-filter#com.google.android.gms.gcm.ACTION_TASK_READY
+ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:36:13-38:29
+action#com.google.android.gms.gcm.ACTION_TASK_READY
+ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:37:17-87
+	android:name
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] /home/clickapps/.gradle/caches/transforms-1/files-1.1/firebase-jobdispatcher-0.8.5.aar/e37c9a84805b3de39b2260bc6c1c400f/AndroidManifest.xml:37:25-84

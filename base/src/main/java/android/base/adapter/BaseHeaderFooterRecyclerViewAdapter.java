@@ -39,7 +39,6 @@ public abstract class BaseHeaderFooterRecyclerViewAdapter<VH extends RecyclerVie
     private Context context;
     private BaseRecyclerViewAdapter.OnItemClickListener itemClickListener;
     private OnItemLongClickListener itemLongClickListener;
-    private boolean hideFooter = false;
 
     /**
      * Instantiates a new Base header footer recycler mView adapter.
@@ -50,31 +49,6 @@ public abstract class BaseHeaderFooterRecyclerViewAdapter<VH extends RecyclerVie
         super(context);
     }
 
-    @Override
-    public void setList(@Nullable List<T> list) {
-        if (list != null) {
-            this.list = new ArrayList<>(list);
-            hideFooter = false;
-            notifyDataSetChanged();
-        }
-    }
-
-    /**
-     * Sets hide footer.
-     */
-    public void setHideFooter() {
-        hideFooter = true;
-        notifyDataSetChanged();
-    }
-
-    /**
-     * Is hide footer boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isHideFooter() {
-        return hideFooter;
-    }
 
     @Override
     public List<T> getList() {

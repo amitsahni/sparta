@@ -5,7 +5,7 @@
 
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <!--set default application background-->
-        <item name="android:windowBackground">@color/app_theme_base</item>
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:windowDisablePreview">true</item>
         <!-- Customize your theme here. for Lollipop-->
         <!-- colorPrimary is used for the default action bar background -->
@@ -15,7 +15,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark_base</item>
         <!-- colorAccent is used as the default value for colorControlActivated
              which is used to tint widgets -->
-        <item name="colorAccent">@color/colorAccent_base</item>
+        <item name="colorAccent">@color/colorPrimary_base</item>
         <!-- You can also set colorControlNormal, colorControlActivated
              colorControlHighlight & colorSwitchThumbNormal. -->
         <!--windowContentTransitions is used to activate activity/fragment transition on lollipop and later version-->
@@ -39,8 +39,8 @@
         <!--ExpendableListView default style-->
         <item name="android:expandableListViewStyle">@style/Widget.ExpandableListView</item>
         <!--DropDownListView default style-->
-        <item name="dropDownListViewStyle">@style/Widget.DropDownListView</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.DropDownListView</item>
+        <!--<item name="dropDownListViewStyle">@style/Widget.DropDownListView</item>-->
+        <!--<item name="android:dropDownListViewStyle">@style/Widget.DropDownListView</item>-->
         <!-- ProgressBar style -->
         <item name="progressBarStyle">@style/Widget.ProgressDialog.ProgressBarCircle</item>
         <item name="android:progressBarStyle">@style/Widget.ProgressDialog.ProgressBarCircle</item>

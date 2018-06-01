@@ -1,22 +1,19 @@
 package android.base.ui.custom;
 
+import android.app.Dialog;
 import android.base.R;
-import android.base.dialog.BaseDialog;
-import android.base.dialog.BaseProgressDialog;
-import android.base.util.ApplicationUtils;
 import android.base.ui.widget.BaseProgressBar;
 import android.base.ui.widget.BaseTextView;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 /**
@@ -78,7 +75,7 @@ public class ProgressViewApplication extends RelativeLayout {
                 progressBar.setIndeterminateTint(tint);
             // ProgressText
             String progressText = ta.getString(R.styleable.ProgressViewApplication_android_text);
-            if (!ApplicationUtils.Validator.isEmptyOrNull(progressText)) {
+            if (!TextUtils.isEmpty(progressText)) {
                 textView.setVisibility(VISIBLE);
                 textView.setText(progressText);
             } else {
@@ -151,7 +148,7 @@ public class ProgressViewApplication extends RelativeLayout {
      * @param text the text
      */
     public void setProgressText(String text) {
-        if (!ApplicationUtils.Validator.isEmptyOrNull(text)) {
+        if (!TextUtils.isEmpty(text)) {
             getTextView().setVisibility(VISIBLE);
             getTextView().setText(text);
         }
@@ -160,7 +157,7 @@ public class ProgressViewApplication extends RelativeLayout {
     /**
      * The type Custom dialog.
      */
-    public class CustomDialog extends BaseDialog {
+    public class CustomDialog extends Dialog {
 
         /**
          * Instantiates a new Custom dialog.

@@ -1,0 +1,3 @@
+# Referenced at /media/clickapps/455bb597-8243-4d35-9dc6-bf99921f84ae/clickapps/Android/Workspace/android-sparta/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:11
+-keep class spartan.com.basemodule.AppApplication { <init>(...); }
+

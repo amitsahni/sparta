@@ -1,17 +1,22 @@
 package android.base.ui.widget;
 
 import android.base.R;
-import android.base.constant.Constant;
-import android.base.util.ApplicationUtils;
-import android.base.util.LetterSpacingUtils;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
+
+import java.util.Locale;
 
 
 /**
@@ -57,26 +62,51 @@ public class BaseTextView extends AppCompatTextView {
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs,
                     R.styleable.BaseTextView);
-            String typeface = ApplicationUtils.System.getFontName(getContext(), a
-                    .getInt(R.styleable.BaseTextView_typefaces, -1), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
+            String typeface = getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
             if (!TextUtils.isEmpty(typeface)) {
                 Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
                         typeface);
                 setTypeface(tf);
             }
-            float letterSpacing = a.getFloat(R.styleable.BaseTextView_letterSpacing, 0.0f);
-            if (letterSpacing != 0.0f) {
-                setTextSpacing(letterSpacing);
-            }
             boolean textAllCaps = a.getBoolean(R.styleable.BaseTextView_android_textAllCaps, false);
             if (textAllCaps) {
-                setText(ApplicationUtils.Validator.upperCase(getText().toString()));
+                setText(getText().toString().toUpperCase(Locale.getDefault()));
             }
             if (a.getBoolean(R.styleable.BaseTextView_enableHtml, false)) {
                 setText(Html.fromHtml(getText().toString()));
             }
+            int resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
+            if (resId != -1) {
+                ColorStateList tint = ContextCompat.getColorStateList(getContext(), resId);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    // Call some material design APIs here
+                    setCompoundDrawableTintList(tint);
+                } else {
+                    // Implement this feature without material design
+                    Drawable[] drawable = getCompoundDrawablesRelative();
+                    Drawable start = drawable[0];
+                    Drawable top = drawable[1];
+                    Drawable end = drawable[2];
+                    Drawable bottom = drawable[3];
+                    if (start != null)
+                        DrawableCompat.setTintList(start, tint);
+                    if (top != null)
+                        DrawableCompat.setTintList(top, tint);
+                    if (end != null)
+                        DrawableCompat.setTintList(end, tint);
+                    if (bottom != null)
+                        DrawableCompat.setTintList(bottom, tint);
+                    setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+                }
+            }
             a.recycle();
         }
+    }
+
+    private String getFontName(Context context, @StringRes int resId) {
+        if (resId != -1)
+            return context.getString(resId);
+        return "";
     }
 
     /**
@@ -100,7 +130,7 @@ public class BaseTextView extends AppCompatTextView {
     public int getForcedGravity(String langCode) {
         int gravity = Gravity.LEFT;
         if (!TextUtils.isEmpty(langCode)) {
-            if (TextUtils.equals(langCode, Constant.ARABIC_LANG_CODE)) {
+            if (TextUtils.equals(langCode, "ar")) {
                 gravity = Gravity.RIGHT;
             }
         }
@@ -115,48 +145,10 @@ public class BaseTextView extends AppCompatTextView {
     public void setForcedGravity(String langCode) {
         int gravity = Gravity.LEFT;
         if (!TextUtils.isEmpty(langCode)) {
-            if (TextUtils.equals(langCode, Constant.ARABIC_LANG_CODE)) {
+            if (TextUtils.equals(langCode, "ar")) {
                 gravity = Gravity.RIGHT;
             }
         }
         this.setGravity(gravity);
     }
-
-    /**
-     * ***************
-     * Spacing between characters of text mView
-     * *******************
-     * <ahref http://stackoverflow.com/questions/5133548/how-to-change-letter-spacing-in-a-textview></ahref>
-     * <ahref http://stackoverflow.com/questions/5133548/how-to-change-letter-spacing-in-a-textview></ahref>
-     */
-
-    private float letterSpacing = LetterSpacingUtils.BIGGEST;
-    private CharSequence originalText = "";
-
-    /**
-     * Sets text spacing.
-     *
-     * @return the text spacing
-     */
-    public float setTextSpacing() {
-        return letterSpacing;
-    }
-
-    /**
-     * Sets text spacing.
-     *
-     * @param letterSpacing the letter spacing
-     */
-    public void setTextSpacing(float letterSpacing) {
-        this.letterSpacing = letterSpacing;
-        originalText = getText();
-        applyLetterSpacing();
-    }
-
-    private void applyLetterSpacing() {
-        if (this == null || this.originalText == null) return;
-        super.setText(LetterSpacingUtils.applyLetterSpacing(originalText.toString(), letterSpacing), BufferType.SPANNABLE);
-    }
-
-
 }

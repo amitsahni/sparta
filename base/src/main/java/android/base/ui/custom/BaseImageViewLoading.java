@@ -1,7 +1,6 @@
 package android.base.ui.custom;
 
 import android.base.R;
-import android.base.constant.Constant;
 import android.base.ui.widget.BaseImageView;
 import android.base.ui.widget.BaseProgressBar;
 import android.content.Context;
@@ -38,7 +37,7 @@ public class BaseImageViewLoading extends FrameLayout {
         super(context, attrs);
         initView();
         if (attrs != null) {
-            if (Build.VERSION.SDK_INT >= Constant.BUILD_VERSION_LOLLIPOP) {
+            if (Build.VERSION.SDK_INT >= 21) {
                 int attr[] = {android.R.attr.transitionName};
                 TypedArray ta = getContext().obtainStyledAttributes(attrs,
                         attr);

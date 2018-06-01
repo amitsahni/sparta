@@ -48,7 +48,7 @@ public class BaseDrawerLayout extends DrawerLayout {
      * Sets .
      */
     public void setup() {
-        this.setDrawerListener(new DrawerListener() {
+        this.addDrawerListener(new DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
 

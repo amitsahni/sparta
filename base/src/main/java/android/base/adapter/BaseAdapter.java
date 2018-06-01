@@ -1,6 +1,5 @@
 package android.base.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,7 @@ import java.util.List;
  * for listView, GridView etc..
  * <p class="note">
  * <strong>Note:</strong> If you want to use {@link Context} you should instead
- * use the {@link #getContext()} and to use Activity mContext use
- * {@link #getActivityContext()}
+ * use the {@link #getContext()}
  * </p>
  * <ul>
  * <li>
@@ -34,39 +32,13 @@ import java.util.List;
  */
 public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     private Context mContext;
-    private Activity mActivityContext;
-    /**
-     * The M list.
-     */
     protected List<T> mList = new ArrayList<>();
-    /**
-     * The Tag.
-     */
     protected String TAG = BaseAdapter.class.getSimpleName();
 
-    /**
-     * Instantiates a new Base adapter.
-     *
-     * @param context the mContext
-     */
     public BaseAdapter(Context context) {
         this.mContext = context;
     }
 
-    /**
-     * Instantiates a new Base adapter.
-     *
-     * @param context the mContext
-     */
-    public BaseAdapter(Activity context) {
-        this.mActivityContext = context;
-    }
-
-    /**
-     * This method is used to setmList containing ListArray<T>
-     *
-     * @param items the items
-     */
     public void setList(List<T> items) {
         if (items != null) {
             mList = new ArrayList<>(items);
@@ -74,11 +46,6 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
         }
     }
 
-    /**
-     * This method is used to get the setListArray
-     *
-     * @return ListArray<T> list
-     */
     public List<T> getList() {
         return mList;
     }
@@ -112,13 +79,19 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
         return mContext;
     }
 
-    /**
-     * Gets activity mContext.
-     *
-     * @return the activity mContext
-     */
-    public Activity getActivityContext() {
-        return mActivityContext;
+    public void removeItem(int pos) {
+        this.mList.remove(pos);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(int pos, T item) {
+        this.mList.add(pos, item);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(T item) {
+        this.mList.add(item);
+        notifyDataSetChanged();
     }
 
 }

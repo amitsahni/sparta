@@ -2,17 +2,24 @@ package android.base.ui.widget;
 
 
 import android.base.R;
-import android.base.util.ApplicationUtils;
-import android.base.util.LetterSpacingUtils;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatEditText;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
+import android.widget.Checkable;
+
+import java.util.Locale;
 
 
 /**
@@ -25,7 +32,7 @@ import android.util.AttributeSet;
  *
  * @author amit.singh
  */
-public class BaseEditText extends AppCompatEditText {
+public class BaseEditText extends AppCompatEditText implements Checkable {
 
     /**
      * Instantiates a new Base edit text.
@@ -57,21 +64,63 @@ public class BaseEditText extends AppCompatEditText {
 
             TypedArray a = context.obtainStyledAttributes(attrs,
                     R.styleable.BaseTextView, 0, 0);
-            String typeface = ApplicationUtils.System.getFontName(getContext(), a
-                    .getInt(R.styleable.BaseTextView_typefaces, -1), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
+            String typeface = getFontName(getContext(), a.getResourceId(R.styleable.BaseTextView_customTypeface, -1));
             if (!TextUtils.isEmpty(typeface))
                 setTypeface(Typeface.createFromAsset(context.getAssets(),
                         typeface));
-            float letterSpacing = a.getFloat(R.styleable.BaseTextView_letterSpacing, 0.0f);
-            if (letterSpacing != 0.0f) {
-                setTextSpacing(letterSpacing);
-            }
             boolean textAllCaps = a.getBoolean(R.styleable.BaseTextView_android_textAllCaps, false);
             if (textAllCaps) {
-                setText(ApplicationUtils.Validator.upperCase(getText().toString()));
+                setText(getText().toString().toUpperCase(Locale.getDefault()));
+            }
+            int resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
+            if (resId != -1) {
+                ColorStateList tint = ContextCompat.getColorStateList(getContext(), resId);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    // Call some material design APIs here
+                    setCompoundDrawableTintList(tint);
+                } else {
+                    // Implement this feature without material design
+                    Drawable[] drawable = getCompoundDrawablesRelative();
+                    Drawable start = drawable[0];
+                    Drawable top = drawable[1];
+                    Drawable end = drawable[2];
+                    Drawable bottom = drawable[3];
+                    if (start != null) {
+                        start = DrawableCompat.wrap(start);
+                        DrawableCompat.setTintList(start, tint);
+                    }
+                    if (top != null) {
+                        top = DrawableCompat.wrap(top);
+                        DrawableCompat.setTintList(top, tint);
+                    }
+                    if (end != null) {
+                        end = DrawableCompat.wrap(end);
+                        DrawableCompat.setTintList(end, tint);
+                    }
+                    if (bottom != null) {
+                        bottom = DrawableCompat.wrap(bottom);
+                        DrawableCompat.setTintList(bottom, tint);
+                    }
+                    setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+                }
             }
             a.recycle();
+
+            int attrss[] = {
+                    android.R.attr.checked
+            };
+            a = context.obtainStyledAttributes(attrs,
+                    attrss, 0, 0);
+            boolean isChecked = a.getBoolean(0, false);
+            setChecked(isChecked);
+            a.recycle();
         }
+    }
+
+    private String getFontName(Context context, @StringRes int resId) {
+        if (resId != -1)
+            return context.getString(resId);
+        return "";
     }
 
     /**
@@ -93,39 +142,40 @@ public class BaseEditText extends AppCompatEditText {
         setTextSize(sp);
     }
 
-    /**
-     * ***************
-     * Spacing between characters of text mView
-     * *******************
-     * <ahref http://stackoverflow.com/questions/5133548/how-to-change-letter-spacing-in-a-textview></ahref>
-     * <ahref http://stackoverflow.com/questions/5133548/how-to-change-letter-spacing-in-a-textview></ahref>
-     */
+    private static final int[] CheckedStateSet = {android.R.attr.state_checked};
 
-    private float letterSpacing = LetterSpacingUtils.BIGGEST;
-    private CharSequence originalText = "";
+    private boolean mChecked = false;
 
-    /**
-     * Sets text spacing.
-     *
-     * @return the text spacing
-     */
-    public float setTextSpacing() {
-        return letterSpacing;
+    @Override
+    public boolean isChecked() {
+        return mChecked;
     }
 
-    /**
-     * Sets text spacing.
-     *
-     * @param letterSpacing the letter spacing
-     */
-    public void setTextSpacing(float letterSpacing) {
-        this.letterSpacing = letterSpacing;
-        originalText = getText();
-        applyLetterSpacing();
+    @Override
+    public void setChecked(boolean b) {
+        if (b != mChecked) {
+            mChecked = b;
+        }
+        refreshDrawableState();
     }
 
-    private void applyLetterSpacing() {
-        if (this == null || this.originalText == null) return;
-        super.setText(LetterSpacingUtils.applyLetterSpacing(originalText.toString(), letterSpacing), BufferType.SPANNABLE);
+    @Override
+    public void toggle() {
+        setChecked(!isChecked());
+    }
+
+    @Override
+    public int[] onCreateDrawableState(int extraSpace) {
+        final int[] drawableState = super.onCreateDrawableState(extraSpace + 1);
+        if (isChecked()) {
+            mergeDrawableStates(drawableState, CheckedStateSet);
+        }
+        return drawableState;
+    }
+
+    @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        invalidate();
     }
 }

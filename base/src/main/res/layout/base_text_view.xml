@@ -8,7 +8,7 @@
         android:id="@android:id/text1"
         style="@style/FillWidth.WrapHeight"
         android:gravity="center"
-        android:padding="@dimen/padding_general"
+        android:padding="@dimen/horizontal_padding"
         android:text="@string/error_no_records_found" />
 
 </LinearLayout>
