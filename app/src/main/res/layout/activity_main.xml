@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/grey"
+    android:transitionGroup="false"
     android:padding="@dimen/horizontal_padding">
 
     <TextView
@@ -47,6 +49,7 @@
         app:strokeSize="10" />
 
     <android.base.ui.widget.BaseFloatingActionButton
+        android:clipChildren="true"
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

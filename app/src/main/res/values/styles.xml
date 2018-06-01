@@ -9,4 +9,6 @@
 
     </style>
 
+    <style name="SecondAcitivtyDetail" parent="ParentAppTheme"></style>
+
 </resources>
