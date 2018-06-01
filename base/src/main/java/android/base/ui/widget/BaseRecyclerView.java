@@ -1,6 +1,5 @@
 package android.base.ui.widget;
 
-import android.base.adapter.BaseHeaderFooterRecyclerViewAdapter;
 import android.base.interfaces.OnLoadMoreListener;
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -65,12 +64,7 @@ public class BaseRecyclerView extends RecyclerView {
 
     private void checkIfEmpty() {
         if (emptyView != null && getAdapter() != null) {
-            final boolean emptyViewVisible;
-            if (getAdapter() instanceof BaseHeaderFooterRecyclerViewAdapter) {
-                emptyViewVisible = ((BaseHeaderFooterRecyclerViewAdapter) getAdapter()).getBasicItemCount() == 0;
-            } else {
-                emptyViewVisible = getAdapter().getItemCount() == 0;
-            }
+            final boolean emptyViewVisible = getAdapter().getItemCount() == 0;
             emptyView.setVisibility(emptyViewVisible ? VISIBLE : GONE);
             setVisibility(emptyViewVisible ? GONE : VISIBLE);
         }

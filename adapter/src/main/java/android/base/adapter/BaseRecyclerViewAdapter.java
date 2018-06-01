@@ -1,6 +1,5 @@
 package android.base.adapter;
 
-import android.base.ui.widget.BaseRecyclerView;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,12 +40,11 @@ public abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder
         /**
          * On item click.
          *
-         * @param recyclerView the recycler mView
-         * @param view         the mView
-         * @param position     the position
-         * @param model        the model
+         * @param view     the mView
+         * @param position the position
+         * @param model    the model
          */
-        void onItemClick(BaseRecyclerView recyclerView, View view, int position, T model);
+        void onItemClick(View view, int position, T model);
     }
 
     /**
@@ -58,13 +56,12 @@ public abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder
         /**
          * On item long click boolean.
          *
-         * @param recyclerView the recycler mView
-         * @param view         the mView
-         * @param position     the position
-         * @param model        the model
+         * @param view     the mView
+         * @param position the position
+         * @param model    the model
          * @return the boolean
          */
-        boolean onItemLongClick(BaseRecyclerView recyclerView, View view, int position, T model);
+        boolean onItemLongClick(View view, int position, T model);
     }
 
     private List<T> list = new ArrayList<>();
