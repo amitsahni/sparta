@@ -108,4 +108,5 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(getLocalClassName(), "onDestroy");
     }
+
 }
