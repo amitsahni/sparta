@@ -36,6 +36,7 @@ public abstract class BaseFooterRecyclerViewAdapter<VH extends RecyclerView.View
     private static final int TYPE_ADAPTEE_OFFSET = 1;
     private int basicItemCount = 0;
     private boolean hideFooter = false;
+    private boolean useFooter = true;
     private List<T> list = new ArrayList<>();
 
     /**
@@ -103,11 +104,12 @@ public abstract class BaseFooterRecyclerViewAdapter<VH extends RecyclerView.View
         }
     }
 
+    @Deprecated
     @Override
     public int getItemCount() {
         basicItemCount = getList().size();
         int itemCount = basicItemCount;
-        if (useFooter()) {
+        if (useFooter) {
             itemCount += 1;
         }
         return itemCount;
@@ -115,14 +117,20 @@ public abstract class BaseFooterRecyclerViewAdapter<VH extends RecyclerView.View
 
     @Override
     public int getItemViewType(int position) {
-        if (position >= basicItemCount && useFooter()) {
+        if (position >= basicItemCount && useFooter) {
             return TYPE_FOOTER;
         }
         return position;
     }
 
     public boolean useFooter() {
-        return true;
+        useFooter = true;
+        return useFooter;
+    }
+
+    public boolean useFooter(boolean isFooter) {
+        useFooter = isFooter;
+        return useFooter;
     }
 
     public FH onCreateFooterViewHolder(ViewGroup parent, int viewType) {
@@ -139,5 +147,8 @@ public abstract class BaseFooterRecyclerViewAdapter<VH extends RecyclerView.View
     public void onBindBasicItemView(VH holder, int position) {
     }
 
+    public int getBasicItemCount() {
+        return getList().size();
+    }
 
 }
