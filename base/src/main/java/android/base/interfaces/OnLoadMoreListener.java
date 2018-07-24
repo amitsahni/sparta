@@ -3,10 +3,7 @@ package android.base.interfaces;
 /**
  * The interface On load more listener.
  */
+@FunctionalInterface
 public interface OnLoadMoreListener {
-
-    /**
-     * On load more.
-     */
-    public void onLoadMore();
+    void onLoadMore();
 }

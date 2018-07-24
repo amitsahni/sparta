@@ -110,7 +110,7 @@ public class BaseRecyclerView extends RecyclerView {
      *
      * @param onLoadMoreListener the on load more listener
      */
-    public void setOnLoadMoreListener(@NonNull final OnLoadMoreListener onLoadMoreListener) {
+    public void setOnLoadMoreListener(final OnLoadMoreListener onLoadMoreListener) {
         loadMoreListener = onLoadMoreListener;
         this.addOnScrollListener(scrollListener);
     }
