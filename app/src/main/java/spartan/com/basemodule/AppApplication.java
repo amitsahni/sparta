@@ -1,6 +1,7 @@
 package spartan.com.basemodule;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
@@ -14,7 +15,7 @@ import com.firebase.jobdispatcher.Trigger;
  * Created by clickapps on 5/2/18.
  */
 
-public class AppApplication extends Application {
+public class AppApplication extends MultiDexApplication {
     FirebaseJobDispatcher dispatcher;
 
     @Override
