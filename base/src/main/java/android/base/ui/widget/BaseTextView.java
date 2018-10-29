@@ -140,9 +140,16 @@ public class BaseTextView extends AppCompatTextView {
                     Drawable top = drawable[1];
                     Drawable end = drawable[2];
                     Drawable bottom = drawable[3];
+                    start = DrawableCompat.wrap(start);
                     DrawableCompat.setTintList(start.mutate(), tint);
+
+                    top = DrawableCompat.wrap(top);
                     DrawableCompat.setTintList(top.mutate(), tint);
+
+                    end = DrawableCompat.wrap(end);
                     DrawableCompat.setTintList(end.mutate(), tint);
+
+                    bottom = DrawableCompat.wrap(bottom);
                     DrawableCompat.setTintList(bottom.mutate(), tint);
                     setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
                 }
