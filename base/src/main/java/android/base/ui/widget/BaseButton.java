@@ -3,9 +3,11 @@ package android.base.ui.widget;
 import android.annotation.SuppressLint;
 import android.base.R;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
@@ -67,47 +69,54 @@ public class BaseButton extends AppCompatButton {
             if (textAllCaps) {
                 setText(getText().toString().toUpperCase(Locale.getDefault()));
             }
-
             int attr[] = {android.R.attr.drawableLeft, android.R.attr.drawableStart,
                     android.R.attr.drawableRight, android.R.attr.drawableEnd,
                     android.R.attr.drawableTop, android.R.attr.drawableBottom};
-            a = context.obtainStyledAttributes(attrs,
+            TypedArray defaultAttr = getContext().obtainStyledAttributes(attrs,
                     attr);
             // android.R.attr.drawableLeft
-            resId = a.getResourceId(a.getIndex(android.R.attr.drawableLeft), -1);
+            resId = defaultAttr.getResourceId(0, -1);
             if (resId != -1) {
-                setCompoundDrawablesWithIntrinsicBounds(resId, getCompoundPaddingTop(), getCompoundPaddingRight(), getCompoundPaddingBottom());
+                Drawable[] drawables = getCompoundDrawables();
+                setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(getContext(), resId), drawables[1], drawables[2], drawables[3]);
             }
 
             // android.R.attr.drawableStart
-            resId = a.getResourceId(a.getIndex(android.R.attr.drawableStart), -1);
+            resId = defaultAttr.getResourceId(1, -1);
             if (resId != -1) {
-                setCompoundDrawablesRelativeWithIntrinsicBounds(resId, getCompoundPaddingTop(), getCompoundPaddingEnd(), getCompoundPaddingBottom());
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat.getDrawable(getContext(), resId), drawables[1], drawables[2], drawables[3]);
             }
 
             // android.R.attr.drawableRight
-            resId = a.getResourceId(a.getIndex(android.R.attr.drawableRight), -1);
+            resId = defaultAttr.getResourceId(2, -1);
             if (resId != -1) {
-                setCompoundDrawablesWithIntrinsicBounds(getCompoundPaddingLeft(), getCompoundPaddingTop(), resId, getCompoundPaddingBottom());
+                Drawable[] drawables = getCompoundDrawables();
+                setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(getContext(), resId), drawables[3]);
             }
 
             // android.R.attr.drawableEnd
-            resId = a.getResourceId(a.getIndex(android.R.attr.drawableEnd), -1);
+            resId = defaultAttr.getResourceId(3, -1);
             if (resId != -1) {
-                setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundPaddingStart(), getCompoundPaddingTop(), resId, getCompoundPaddingBottom());
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(getContext(), resId), drawables[3]);
             }
 
             // android.R.attr.drawableTop
-            resId = a.getResourceId(a.getIndex(android.R.attr.drawableTop), -1);
+            resId = defaultAttr.getResourceId(4, -1);
             if (resId != -1) {
-                setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundPaddingStart(), resId, getCompoundPaddingEnd(), getCompoundPaddingBottom());
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], ContextCompat.getDrawable(getContext(), resId), drawables[2], drawables[3]);
             }
 
             // android.R.attr.drawableBottom
-            resId = a.getResourceId(a.getIndex(android.R.attr.drawableBottom), -1);
+            resId = defaultAttr.getResourceId(5, -1);
             if (resId != -1) {
-                setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundPaddingStart(), getCompoundPaddingTop(), getCompoundPaddingEnd(), resId);
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2], ContextCompat.getDrawable(getContext(), resId));
             }
+            defaultAttr.recycle();
+
             a.recycle();
         }
     }
