@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Slide slide = new Slide();
         slide.addTarget(R.id.fab);
-        getWindow().setExitTransition(slide);
+       // getWindow().setExitTransition(slide);
         final CircularProgressButton pb = findViewById(R.id.btn_id);
         pb.setOnClickListener(new View.OnClickListener() {
             @Override

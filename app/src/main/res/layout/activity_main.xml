@@ -13,8 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:drawableStart="@drawable/ic_loading"
+        android:drawableEnd="@drawable/ic_loading"
         android:drawableTop="@drawable/ic_loading"
+        android:drawableBottom="@drawable/ic_loading"
         android:transitionName="text"
+        android:tint="@color/colorPrimary"
         android:textColor="@color/black" />
 
     <android.base.ui.widget.BaseEditText
