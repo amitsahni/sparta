@@ -75,7 +75,51 @@ public class BaseTextView extends AppCompatTextView {
             if (a.getBoolean(R.styleable.BaseTextView_enableHtml, false)) {
                 setText(Html.fromHtml(getText().toString()));
             }
-            int resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
+
+
+            int attr[] = {android.R.attr.drawableLeft, android.R.attr.drawableStart,
+                    android.R.attr.drawableRight, android.R.attr.drawableEnd,
+                    android.R.attr.drawableTop, android.R.attr.drawableBottom};
+            a = getContext().obtainStyledAttributes(attrs,
+                    attr);
+            // android.R.attr.drawableLeft
+            int resId = a.getResourceId(a.getIndex(android.R.attr.drawableLeft), -1);
+            if (resId != -1) {
+                setCompoundDrawablesWithIntrinsicBounds(resId, getCompoundPaddingTop(), getCompoundPaddingRight(), getCompoundPaddingBottom());
+            }
+
+            // android.R.attr.drawableStart
+            resId = a.getResourceId(a.getIndex(android.R.attr.drawableStart), -1);
+            if (resId != -1) {
+                setCompoundDrawablesRelativeWithIntrinsicBounds(resId, getCompoundPaddingTop(), getCompoundPaddingEnd(), getCompoundPaddingBottom());
+            }
+
+            // android.R.attr.drawableRight
+            resId = a.getResourceId(a.getIndex(android.R.attr.drawableRight), -1);
+            if (resId != -1) {
+                setCompoundDrawablesWithIntrinsicBounds(getCompoundPaddingLeft(), getCompoundPaddingTop(), resId, getCompoundPaddingBottom());
+            }
+
+            // android.R.attr.drawableEnd
+            resId = a.getResourceId(a.getIndex(android.R.attr.drawableEnd), -1);
+            if (resId != -1) {
+                setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundPaddingStart(), getCompoundPaddingTop(), resId, getCompoundPaddingBottom());
+            }
+
+            // android.R.attr.drawableTop
+            resId = a.getResourceId(a.getIndex(android.R.attr.drawableTop), -1);
+            if (resId != -1) {
+                setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundPaddingStart(), resId, getCompoundPaddingEnd(), getCompoundPaddingBottom());
+            }
+
+            // android.R.attr.drawableBottom
+            resId = a.getResourceId(a.getIndex(android.R.attr.drawableBottom), -1);
+            if (resId != -1) {
+                setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundPaddingStart(), getCompoundPaddingTop(), getCompoundPaddingEnd(), resId);
+            }
+
+
+            resId = a.getResourceId(R.styleable.BaseTextView_android_tint, -1);
             if (resId != -1) {
                 ColorStateList tint = ContextCompat.getColorStateList(getContext(), resId);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

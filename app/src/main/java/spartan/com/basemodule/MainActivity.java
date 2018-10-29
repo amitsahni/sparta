@@ -1,6 +1,8 @@
 package spartan.com.basemodule;
 
 import android.app.ActivityOptions;
+import android.arch.lifecycle.Observer;
+import android.base.events.PubSubEvent;
 import android.base.ui.custom.FloatingSpinner;
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
         if (getApplication() instanceof AppApplication) {
             ((AppApplication) getApplication()).runJobService();
         }
+        final PubSubEvent<Boolean> pubSubEvent = PubSubEvent.getInstance();
+        pubSubEvent.observeForever(new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                Log.i(getLocalClassName(), "OnChanged = " + aBoolean);
+            }
+        });
         FloatingSpinner spinner = (FloatingSpinner) findViewById(R.id.floatingSpinner);
         v = findViewById(R.id.text1);
         ViewAnimator
@@ -50,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,
                         SecondActivity.class);
-                i.putExtra("textSize",v.getTextSize());
+                i.putExtra("textSize", v.getTextSize());
                 ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
                         MainActivity.this, v, v.getTransitionName());
 //                ActivityOptions transitionActivityOptions = ActivityOptions.makeBasic();
 
+                pubSubEvent.setValue(true);
                 startActivity(i, transitionActivityOptions.toBundle());
             }
         });
