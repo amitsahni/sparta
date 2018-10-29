@@ -1,10 +1,13 @@
 package android.base.ui.widget;
 
+import android.annotation.SuppressLint;
 import android.base.R;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
@@ -46,6 +49,7 @@ public class BaseButton extends AppCompatButton {
      * @param context the context
      * @param attrs   the attrs
      */
+    @SuppressLint("ResourceType")
     public BaseButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         // TODO Auto-generated constructor stub
@@ -65,6 +69,53 @@ public class BaseButton extends AppCompatButton {
             if (textAllCaps) {
                 setText(getText().toString().toUpperCase(Locale.getDefault()));
             }
+            int attr[] = {android.R.attr.drawableLeft, android.R.attr.drawableStart,
+                    android.R.attr.drawableRight, android.R.attr.drawableEnd,
+                    android.R.attr.drawableTop, android.R.attr.drawableBottom};
+            TypedArray defaultAttr = getContext().obtainStyledAttributes(attrs,
+                    attr);
+            // android.R.attr.drawableLeft
+            resId = defaultAttr.getResourceId(0, -1);
+            if (resId != -1) {
+                Drawable[] drawables = getCompoundDrawables();
+                setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(getContext(), resId), drawables[1], drawables[2], drawables[3]);
+            }
+
+            // android.R.attr.drawableStart
+            resId = defaultAttr.getResourceId(1, -1);
+            if (resId != -1) {
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat.getDrawable(getContext(), resId), drawables[1], drawables[2], drawables[3]);
+            }
+
+            // android.R.attr.drawableRight
+            resId = defaultAttr.getResourceId(2, -1);
+            if (resId != -1) {
+                Drawable[] drawables = getCompoundDrawables();
+                setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(getContext(), resId), drawables[3]);
+            }
+
+            // android.R.attr.drawableEnd
+            resId = defaultAttr.getResourceId(3, -1);
+            if (resId != -1) {
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(getContext(), resId), drawables[3]);
+            }
+
+            // android.R.attr.drawableTop
+            resId = defaultAttr.getResourceId(4, -1);
+            if (resId != -1) {
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], ContextCompat.getDrawable(getContext(), resId), drawables[2], drawables[3]);
+            }
+
+            // android.R.attr.drawableBottom
+            resId = defaultAttr.getResourceId(5, -1);
+            if (resId != -1) {
+                Drawable[] drawables = getCompoundDrawablesRelative();
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2], ContextCompat.getDrawable(getContext(), resId));
+            }
+            defaultAttr.recycle();
 
             a.recycle();
         }
