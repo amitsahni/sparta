@@ -81,42 +81,42 @@ public class BaseTextView extends AppCompatTextView {
 
 
             // android.R.attr.drawableLeft
-            int resId = a.getResourceId(0, -1);
+            int resId = a.getResourceId(R.styleable.BaseTextView_android_drawableLeft, -1);
             if (resId != -1) {
                 Drawable[] drawables = getCompoundDrawables();
                 setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(getContext(), resId), drawables[1], drawables[2], drawables[3]);
             }
 
             // android.R.attr.drawableStart
-            resId = a.getResourceId(1, -1);
+            resId = a.getResourceId(R.styleable.BaseTextView_android_drawableStart, -1);
             if (resId != -1) {
                 Drawable[] drawables = getCompoundDrawablesRelative();
                 setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat.getDrawable(getContext(), resId), drawables[1], drawables[2], drawables[3]);
             }
 
             // android.R.attr.drawableRight
-            resId = a.getResourceId(2, -1);
+            resId = a.getResourceId(R.styleable.BaseTextView_android_drawableRight, -1);
             if (resId != -1) {
                 Drawable[] drawables = getCompoundDrawables();
                 setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(getContext(), resId), drawables[3]);
             }
 
             // android.R.attr.drawableEnd
-            resId = a.getResourceId(3, -1);
+            resId = a.getResourceId(R.styleable.BaseTextView_android_drawableEnd, -1);
             if (resId != -1) {
                 Drawable[] drawables = getCompoundDrawablesRelative();
                 setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(getContext(), resId), drawables[3]);
             }
 
             // android.R.attr.drawableTop
-            resId = a.getResourceId(4, -1);
+            resId = a.getResourceId(R.styleable.BaseTextView_android_drawableTop, -1);
             if (resId != -1) {
                 Drawable[] drawables = getCompoundDrawablesRelative();
                 setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], ContextCompat.getDrawable(getContext(), resId), drawables[2], drawables[3]);
             }
 
             // android.R.attr.drawableBottom
-            resId = a.getResourceId(5, -1);
+            resId = a.getResourceId(R.styleable.BaseTextView_android_drawableBottom, -1);
             if (resId != -1) {
                 Drawable[] drawables = getCompoundDrawablesRelative();
                 setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2], ContextCompat.getDrawable(getContext(), resId));
