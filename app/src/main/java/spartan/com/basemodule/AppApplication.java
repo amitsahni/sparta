@@ -1,9 +1,9 @@
 package spartan.com.basemodule;
 
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.Observer;
 import android.base.events.PubSubEvent;
-import android.support.annotation.Nullable;
-import android.support.multidex.MultiDexApplication;
+import androidx.annotation.Nullable;
+import androidx.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;

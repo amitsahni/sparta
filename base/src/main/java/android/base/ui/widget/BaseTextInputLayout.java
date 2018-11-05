@@ -2,7 +2,7 @@ package android.base.ui.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.design.widget.TextInputLayout;
+import com.google.android.material.textfield.TextInputLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;

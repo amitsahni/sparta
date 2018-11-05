@@ -1,7 +1,7 @@
 package android.base.ui.widget;
 
 import android.content.Context;
-import android.support.design.widget.NavigationView;
+import com.google.android.material.navigation.NavigationView;
 import android.util.AttributeSet;
 
 /**

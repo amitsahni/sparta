@@ -3,11 +3,10 @@ package android.base.ui.widget;
 import android.base.R;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 

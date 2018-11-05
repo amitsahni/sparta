@@ -1,7 +1,7 @@
 package spartan.com.basemodule;
 
 import android.app.ActivityOptions;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.Observer;
 import android.base.events.PubSubEvent;
 import android.base.ui.custom.FloatingSpinner;
 import android.content.Context;
@@ -9,12 +9,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.transition.Slide;
 import android.util.Log;
 import android.view.View;
