@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="BaseAppTheme" parent="AppTheme.Base" />
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Base" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--set default application background-->
         <item name="android:windowBackground">@color/white</item>
         <item name="android:windowDisablePreview">true</item>

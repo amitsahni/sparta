@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.bottomappbar.BottomAppBar;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         if (getApplication() instanceof AppApplication) {
             ((AppApplication) getApplication()).runJobService();
         }
+        BottomAppBar bottomBar = findViewById(R.id.bottomBar);
+        bottomBar.replaceMenu(R.menu.menu);
         final PubSubEvent<Boolean> pubSubEvent = PubSubEvent.getInstance();
         pubSubEvent.observeForever(new Observer<Boolean>() {
             @Override
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Slide slide = new Slide();
         slide.addTarget(R.id.fab);
-       // getWindow().setExitTransition(slide);
+        // getWindow().setExitTransition(slide);
         final CircularProgressButton pb = findViewById(R.id.btn_id);
         pb.setOnClickListener(new View.OnClickListener() {
             @Override

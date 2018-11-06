@@ -1,5 +1,6 @@
 package android.base.ui.widget;
 
+import android.annotation.SuppressLint;
 import android.base.R;
 import android.content.Context;
 import android.content.res.TypedArray;

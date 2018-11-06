@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/grey"
-    android:transitionGroup="false"
-    android:padding="@dimen/horizontal_padding">
+    android:orientation="vertical"
+    android:padding="@dimen/horizontal_padding"
+    android:transitionGroup="false">
 
     <android.base.ui.widget.BaseTextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         android:drawableStart="@drawable/ic_loading"
-        android:drawableEnd="@drawable/ic_loading"
         android:drawableTop="@drawable/ic_loading"
+        android:drawableEnd="@drawable/ic_loading"
         android:drawableBottom="@drawable/ic_loading"
-        android:transitionName="text"
+        android:text="Hello World!"
+        android:textColor="@color/black"
         android:tint="@color/colorPrimary"
-        android:textColor="@color/black" />
+        android:transitionName="text" />
 
     <android.base.ui.widget.BaseEditText
         android:id="@android:id/text2"
@@ -27,8 +27,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_loading"
         android:text="Hello World!"
-        android:textColor="@color/black"
-        />
+        android:textColor="@color/black" />
 
     <android.base.ui.custom.FloatingSpinner
         android:id="@+id/floatingSpinner"
@@ -45,7 +44,7 @@
 
     <android.base.ui.custom.ProgressView
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:layout_marginTop="10dp"
         android:max="100"
         android:progress="20"
@@ -53,14 +52,6 @@
         app:mode="semi"
         app:strokeSize="10" />
 
-    <android.base.ui.widget.BaseFloatingActionButton
-        android:clipChildren="true"
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_delete"
-        android:transitionName="fab"
-        app:fabSize="mini" />
 
     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
         android:id="@+id/btn_id"
@@ -74,4 +65,92 @@
         app:finalCornerAngle="30dp"
         app:initialCornerAngle="30dp" />
 
+    <android.base.ui.widget.BaseChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:chipSpacing="5dp">
+
+        <android.base.ui.widget.BaseChip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            app:chipIcon="@mipmap/ic_launcher" />
+
+        <android.base.ui.widget.BaseChip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            app:closeIcon="@mipmap/ic_launcher"
+            app:closeIconEnabled="true"
+            app:closeIconTint="@color/white" />
+
+        <android.base.ui.widget.BaseChip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello" />
+    </android.base.ui.widget.BaseChipGroup>
+
+    <android.support.design.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="5dp"
+        app:strokeColor="@color/blue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.base.ui.widget.BaseButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@mipmap/ic_launcher"
+                android:text="adfkalsf"
+                android:visibility="visible" />
+
+            <android.base.ui.widget.BaseMaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="afdasfd"
+                app:backgroundTint="@color/blue"
+                app:cornerRadius="40dp"
+                app:icon="@drawable/ic_loading"
+                app:iconTint="@color/black" />
+        </LinearLayout>
+    </android.support.design.card.MaterialCardView>
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+
+        <android.base.ui.widget.BaseFloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@android:drawable/ic_delete"
+            android:transitionName="fab"
+            app:backgroundTint="@color/blue"
+            app:fabSize="mini"
+            app:layout_anchor="@+id/bottomBar"
+            app:layout_anchorGravity="end"
+            app:rippleColor="@color/black" />
+
+        <android.base.ui.widget.BaseBottomAppBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabAlignmentMode="center"
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:navigationIcon="@android:drawable/presence_busy" />
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
