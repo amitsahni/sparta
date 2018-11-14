@@ -32,7 +32,8 @@ public class FloatingSpinner extends FrameLayout implements AdapterView.OnItemSe
     private BaseTextView textView;
     private BaseSpinner spinner;
     int labelColor;
-    private OnItemChosenListener onItemChosenListener;
+    private AdapterView.OnItemSelectedListener l;
+    private int lastPosition = -1;
 
     public FloatingSpinner(@NonNull Context context) {
         super(context);
@@ -69,9 +70,10 @@ public class FloatingSpinner extends FrameLayout implements AdapterView.OnItemSe
             labelColor = a.getColor(R.styleable.FloatingSpinner_labelTextColor,
                     ContextCompat.getColor(getContext(), R.color.black));
             textView.setTextColor(labelColor);
-            final CharSequence[] entries = a.getTextArray(R.styleable.FloatingSpinner_spinnerEntries);
+            final CharSequence[] entries = a.getTextArray(R.styleable.FloatingSpinner_android_entries);
             if (entries != null) {
                 setItemsArray(entries);
+                setSelection(0);
             }
             a.recycle();
         }
@@ -271,6 +273,7 @@ public class FloatingSpinner extends FrameLayout implements AdapterView.OnItemSe
      * @param position Index (starting at 0) of the data item to be selected.
      */
     public void setSelection(int position) {
+        lastPosition = Math.max(-1, position);
         spinner.setSelection(position);
     }
 
@@ -281,79 +284,33 @@ public class FloatingSpinner extends FrameLayout implements AdapterView.OnItemSe
      * @param animate  Whether or not the transition should be animated
      */
     public void setSelection(int position, boolean animate) {
+        lastPosition = Math.max(-1, position);
         spinner.setSelection(position, animate);
     }
 
-    /**
-     * Interface definition for a callback to be invoked when an item in this
-     * LabelledSpinner's Spinner view has been selected.
-     */
-    public interface OnItemChosenListener {
-
-        /**
-         * Callback method to be invoked when an item in this LabelledSpinner's
-         * spinner view has been selected. This callback is invoked only when
-         * the newly selected position is different from the previously selected
-         * position or if there was no selected item.
-         *
-         * @param labelledSpinner The LabelledSpinner where the selection
-         *                        happened. This view contains the AdapterView.
-         * @param adapterView     The AdapterView where the selection happened. Note
-         *                        that this AdapterView is part of the LabelledSpinner
-         *                        component.
-         * @param itemView        The view within the AdapterView that was clicked.
-         * @param position        The position of the view in the adapter.
-         * @param id              The row id of the item that is selected.
-         */
-        void onItemChosen(View labelledSpinner, AdapterView<?> adapterView, View itemView,
-                          int position, long id);
-
-        /**
-         * Callback method to be invoked when the selection disappears from this
-         * view. The selection can disappear for instance when touch is activated
-         * or when the adapter becomes empty.
-         *
-         * @param labelledSpinner The LabelledSpinner view that contains the
-         *                        AdapterView.
-         * @param adapterView     The AdapterView that now contains no selected item.
-         */
-        void onNothingChosen(View labelledSpinner, AdapterView<?> adapterView);
+    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
+        this.l = onItemSelectedListener;
+        spinner.setOnItemSelectedListener(this);
     }
 
-    /**
-     * Register a callback to be invoked when an item in this AdapterView has
-     * been selected.
-     * This would be similar to setting an OnItemSelectedListener for a normal
-     * Spinner component.
-     *
-     * @param onItemChosenListener The callback that will run
-     */
-    public void setOnItemChosenListener(OnItemChosenListener onItemChosenListener) {
-        this.onItemChosenListener = onItemChosenListener;
-    }
-
-    /**
-     * @return the interface which handles selection of items in the Spinner
-     */
-    @Nullable
-    public OnItemChosenListener getOnItemChosenListener() {
-        return onItemChosenListener;
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (onItemChosenListener != null) {
-
-            // 'this' refers to this FloatingSpinner component
-            onItemChosenListener.onItemChosen(this, parent, view, position, id);
+        if (position != lastPosition) {
+            lastPosition = position;
+            if (l != null) {
+                l.onItemSelected(parent, view, position, id);
+            }
         }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        if (onItemChosenListener != null) {
-            // 'this' refers to this FloatingSpinner component
-            onItemChosenListener.onNothingChosen(this, parent);
+        if (-1 != lastPosition) {
+            lastPosition = -1;
+            if (l != null) {
+                l.onNothingSelected(parent);
+            }
         }
     }
 }

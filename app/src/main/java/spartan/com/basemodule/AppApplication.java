@@ -1,8 +1,5 @@
 package spartan.com.basemodule;
 
-import android.arch.lifecycle.Observer;
-import android.base.events.PubSubEvent;
-import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
@@ -23,13 +20,6 @@ public class AppApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        PubSubEvent<Boolean> pubSubEvent = PubSubEvent.getInstance();
-        pubSubEvent.observeForever(new Observer<Boolean>() {
-            @Override
-            public void onChanged(@Nullable Boolean aBoolean) {
-                Log.i(AppApplication.class.getSimpleName(), "OnChanged = " + aBoolean);
-            }
-        });
     }
 
     @Override

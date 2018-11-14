@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         app:labelText="@string/app_name"
         app:labelTextColor="@color/blue"
-        app:spinnerEntries="@array/spinner" />
+        android:entries="@array/spinner" />
 
     <View
         android:layout_width="match_parent"

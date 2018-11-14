@@ -1,6 +1,5 @@
 package spartan.com.basemodule;
 
-import android.base.events.PubSubEvent;
 import android.base.ui.custom.FloatingSpinner;
 import android.content.Context;
 import android.os.Bundle;
@@ -31,8 +30,6 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         FloatingSpinner spinner = (FloatingSpinner) findViewById(R.id.floatingSpinnerSecond);
        // spinner.setVisibility(View.INVISIBLE);
-        PubSubEvent<Boolean> pubSubEvent = PubSubEvent.getInstance();
-        pubSubEvent.setValue(true);
         view = findViewById(R.id.text2);
         ViewAnimator
                 .animate(spinner)
